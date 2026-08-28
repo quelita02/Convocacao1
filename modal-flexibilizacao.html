@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexibilizar Critérios — IMO GOV.BR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    /* Página standalone: exibe o modal já aberto sobre fundo escurecido */
+    body {
+      background: #e5e5e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: var(--font-base);
+    }
+
+    /* Fundo escurecido fixo (simula o overlay ativo sem precisar de JS extra) */
+    .page-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+      z-index: 10;
+    }
+
+    /* O modal em si */
+    .standalone-modal {
+      background: var(--color-surface);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 460px;
+      position: relative;
+      z-index: 20;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4) var(--space-5);
+      border-bottom: 1px solid var(--color-gray-2);
+    }
+
+    .modal-title {
+      font-size: var(--font-size-md);
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    .modal-body {
+      padding: var(--space-5);
+    }
+
+    .modal-desc {
+      font-size: var(--font-size-base);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-5);
+      line-height: 1.55;
+    }
+
+    .modal-checkboxes {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-5);
+      border-top: 1px solid var(--color-gray-2);
+    }
+
+    /* Feedback inline de resultado */
+    .feedback-msg {
+      display: none;
+      margin-top: var(--space-3);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--border-radius-sm);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+    }
+    .feedback-msg.success {
+      display: block;
+      background: var(--color-success-bg);
+      color: var(--color-success);
+      border-left: 3px solid var(--color-success);
+    }
+    .feedback-msg.warning {
+      display: block;
+      background: var(--color-warning-bg);
+      color: #856404;
+      border-left: 3px solid var(--color-warning);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay + Modal centralizados -->
+  <div class="page-overlay" id="page-overlay" role="dialog" aria-modal="true" aria-labelledby="flex-modal-title">
+
+    <div class="standalone-modal" role="document">
+
+      <!-- Cabeçalho -->
+      <div class="modal-header">
+        <h1 class="modal-title" id="flex-modal-title">Flexibilizar critérios</h1>
+      </div>
+
+      <!-- Corpo -->
+      <div class="modal-body">
+        <p class="modal-desc">
+          Ao flexibilizar, mais candidatos podem se enquadrar às características das vagas.
+        </p>
+
+        <form id="flex-form" novalidate>
+          <div class="modal-checkboxes">
+
+            <label class="govbr-checkbox">
+              <input type="checkbox"
+                     id="chk-comprovacao-exp"
+                     name="criterio"
+                     value="comprovacao-experiencia" />
+              <span>Comprovação de Experiência</span>
+            </label>
+
+            <label class="govbr-checkbox">
+              <input type="checkbox"
+                     id="chk-deficiencia"
+                     name="criterio"
+                     value="deficiencia" />
+              <span>Deficiência</span>
+            </label>
+
+            <label class="govbr-checkbox">
+              <input type="checkbox"
+                     id="chk-escolaridade"
+                     name="criterio"
+                     value="escolaridade" />
+              <span>Escolaridade</span>
+            </label>
+
+            <label class="govbr-checkbox">
+              <input type="checkbox"
+                     id="chk-exigencia-hab"
+                     name="criterio"
+                     value="exigencia-habilitacao" />
+              <span>Exigência de Habilitação</span>
+            </label>
+
+            <label class="govbr-checkbox">
+              <input type="checkbox"
+                     id="chk-experiencia"
+                     name="criterio"
+                     value="experiencia-profissional" />
+              <span>Experiência profissional</span>
+            </label>
+
+            <label class="govbr-checkbox">
+              <input type="checkbox"
+                     id="chk-idioma"
+                     name="criterio"
+                     value="idioma" />
+              <span>Idioma</span>
+            </label>
+
+            <label class="govbr-checkbox">
+              <input type="checkbox"
+                     id="chk-tempo-hab"
+                     name="criterio"
+                     value="tempo-habilitacao" />
+              <span>Tempo de Habilitação</span>
+            </label>
+
+          </div>
+
+          <!-- Feedback de validação -->
+          <div class="feedback-msg" id="flex-feedback" role="alert" aria-live="polite"></div>
+
+        </form>
+      </div>
+
+      <!-- Rodapé -->
+      <div class="modal-footer">
+        <button class="govbr-btn govbr-btn-secondary"
+                type="button"
+                id="btn-voltar"
+                aria-label="Voltar sem flexibilizar">
+          Voltar
+        </button>
+        <button class="govbr-btn govbr-btn-primary"
+                type="submit"
+                form="flex-form"
+                id="btn-flexibilizar"
+                aria-label="Confirmar flexibilização dos critérios selecionados">
+          Flexibilizar
+        </button>
+      </div>
+
+    </div><!-- /standalone-modal -->
+  </div><!-- /page-overlay -->
+
+  <script>
+    'use strict';
+
+    const form     = document.getElementById('flex-form');
+    const feedback = document.getElementById('flex-feedback');
+    const btnVolt  = document.getElementById('btn-voltar');
+
+    /* Voltar fecha o modal (no contexto standalone, volta para a página anterior) */
+    btnVolt.addEventListener('click', () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'visualizar-vaga.html';
+      }
+    });
+
+    /* Fechar com ESC */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') btnVolt.click();
+    });
+
+    /* Submit */
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const checks = [...form.querySelectorAll('input[type=checkbox]:checked')];
+      const selecionados = checks.map(c => c.closest('label').querySelector('span').textContent.trim());
+
+      feedback.className = 'feedback-msg';
+
+      if (selecionados.length === 0) {
+        feedback.textContent = 'Selecione ao menos um critério para flexibilizar.';
+        feedback.classList.add('warning');
+        return;
+      }
+
+      feedback.textContent = `Critério(s) flexibilizado(s): ${selecionados.join(', ')}.`;
+      feedback.classList.add('success');
+
+      /* Aguarda 1,5s e retorna */
+      setTimeout(() => {
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.href = 'visualizar-vaga.html';
+        }
+      }, 1500);
+    });
+
+    /* Foco acessível no primeiro checkbox ao carregar */
+    document.addEventListener('DOMContentLoaded', () => {
+      const first = form.querySelector('input[type=checkbox]');
+      if (first) first.focus();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convocação — IMO GOV.BR</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Skip link acessibilidade -->
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  HEADER GOV.BR                       ║
+       ╚══════════════════════════════════════╝ -->
+  <header class="govbr-header" role="banner">
+    <div class="header-brand">
+      <!-- Botão fechar/menu mobile -->
+      <button class="header-close-btn" id="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Logo GOV.BR -->
+      <div class="header-logo" aria-label="Governo Federal">
+        <svg class="govbr-logo-svg" viewBox="0 0 100 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="9,3.5 10.5,8.5 15.5,8.5 11.5,11.5 13,16.5 9,13.5 5,16.5 6.5,11.5 2.5,8.5 7.5,8.5" fill="#FFCD07"/>
+          <text x="18" y="19" fill="#1351b4" font-family="Rawline,sans-serif" font-weight="700" font-size="14" letter-spacing="0.2">gov.br</text>
+        </svg>
+      </div>
+
+      <div class="header-divider" aria-hidden="true"></div>
+
+      <div class="header-system-info">
+        <div class="header-system-name">IMO – Intermediação de Mão-de-Obra</div>
+        <div class="header-system-subtitle">Ministério do Trabalho e Emprego</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <div class="header-user">
+        <span>Olá, João</span>
+        <div class="header-avatar" aria-hidden="true">J</div>
+      </div>
+      <button class="header-icon-btn" aria-label="Notificações" aria-haspopup="true">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notification-badge" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Overlay mobile -->
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- ══════════ BARRA SUPERIOR DE ATENDIMENTO ══════════ -->
+  <nav class="barra-atendimento-topo" aria-label="Ações do atendimento">
+    <a href="lista-vagas.html" class="barra-atendimento-item">
+      <i class="fa-solid fa-house" aria-hidden="true"></i>
+      <span>Página inicial do atendimento</span>
+    </a>
+
+    <button type="button"
+            class="barra-atendimento-item barra-atendimento-item--finalizar"
+            data-modal-target="modal-finalizar-atendimento"
+            aria-haspopup="dialog">
+      <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+      <span>Finalizar o atendimento</span>
+    </button>
+  </nav>
+
+  <div class="app-layout">
+
+    <!-- ╔══════════════════════════════════════╗
+         ║  MENU LATERAL                        ║
+         ╚══════════════════════════════════════╝ -->
+    <nav class="govbr-sidebar" aria-label="Menu principal">
+      <ul class="sidebar-nav" role="menubar">
+
+        <!-- Página inicial -->
+        <li role="none">
+          <a href="#" class="nav-item" role="menuitem">
+            <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+            <span class="nav-label">Página inicial</span>
+          </a>
+        </li>
+
+        <!-- Captação de vagas -->
+        <li class="nav-group" id="nav-group-captacao" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-briefcase"></i></span>
+            <span class="nav-label">Captação de vagas</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Recomendações do EmpregAI</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Gestão de Contatos</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Lembretes</a></li>
+          </ul>
+        </li>
+
+        <!-- Empregador -->
+        <li class="nav-group" id="nav-group-empregador" role="none">
+          <div class="nav-group-header open" role="menuitem" aria-haspopup="true" aria-expanded="true" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-building"></i></span>
+            <span class="nav-label">Empregador</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children expanded" role="menu">
+            <li role="none"><a href="lista-vagas.html" class="nav-subitem" role="menuitem">Novo atendimento</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-divider" role="separator"></li>
+
+        <!-- Gerencial -->
+        <li class="nav-group" id="nav-group-gerencial" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-chart-bar"></i></span>
+            <span class="nav-label">Gerencial</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Cadastrar agente zoneador</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Cadastrar áreas de atuação</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Alterar áreas de atuação</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Igualdade Salarial</a></li>
+          </ul>
+        </li>
+
+        <!-- Operacional -->
+        <li class="nav-group" id="nav-group-operacional" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-gears"></i></span>
+            <span class="nav-label">Operacional</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Operações com NIT</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Disponibilidade do Sistema</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Parâmetros do sistema</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Informativo</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Instituições de ensino</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Postos de atendimento</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- ╔══════════════════════════════════════╗
+         ║  CONTEÚDO PRINCIPAL                  ║
+         ╚══════════════════════════════════════╝ -->
+    <main class="main-content" id="main-content" role="main">
+
+      <!-- Cabeçalho da página -->
+      <div class="page-header">
+        <a href="lista-vagas.html" class="page-back-btn" aria-label="Voltar à lista de vagas">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <h1 class="page-title">Convocação</h1>
+      </div>
+
+      <!-- Card de identificação da vaga -->
+      <div class="govbr-card">
+        <div class="vaga-info-row">
+          <div class="vaga-field">
+            <span class="vaga-field-label">Código</span>
+            <span class="vaga-field-value">2525-05</span>
+          </div>
+          <div class="vaga-field">
+            <span class="vaga-field-label">Título</span>
+            <span class="vaga-field-value">Administrador de fundos e carteiras de investimento</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Critérios Flexíveis ─────────────────────────── -->
+      <section class="criterios-section" aria-label="Critérios flexíveis">
+        <h2 class="criterios-title">Critérios flexíveis</h2>
+        <p class="criterios-desc">
+          Ao flexibilizar, mais candidatos podem se enquadrar às características das vagas.
+        </p>
+        <button class="govbr-btn govbr-btn-secondary"
+                id="btn-flexibilizar"
+                data-modal-target="modal-flexibilizar"
+                type="button">
+          Flexibilizar vaga
+        </button>
+      </section>
+
+      <!-- ── Filtros ─────────────────────────────────────── -->
+      <section class="filtros-section" aria-label="Filtros de busca">
+        <h2 class="filtros-title">Filtros</h2>
+        <form id="filter-form" novalidate>
+          <div class="filtros-row">
+            <div class="filtro-field">
+              <label for="filter-id">Identificação</label>
+              <input type="text"
+                     id="filter-id"
+                     class="govbr-input"
+                     placeholder=""
+                     autocomplete="off" />
+            </div>
+            <div class="filtro-field">
+              <label for="filter-condicao">Condição</label>
+              <select id="filter-condicao" class="govbr-select">
+                <option value="desempregado" selected>Desempregado</option>
+                <option value="procura-emprego">Procura emprego</option>
+                <option value="estagiario-remunerado">Estagiário Remunerado</option>
+                <option value="trabalhador-autonomo">Trabalhador Autônomo</option>
+                <option value="micro-produtor-agricola">Microempresário/Produtor Rural - Agrícola</option>
+                <option value="micro-produtor-nao-agricola">Microempresário/Produtor Rural - Não Agrícola</option>
+                <option value="pequeno-micro-empreendedor">Pequeno Micro Empreendedor</option>
+                <option value="assalariado-com-ctps">Empregado Assalariado c/ Registro em CTPS</option>
+                <option value="assalariado-sem-ctps">Empregado Assalariado s/ Registro em CTPS</option>
+                <option value="domestico-com-ctps">Empregado Doméstico c/ Registro em CTPS</option>
+                <option value="domestico-sem-ctps">Empregado Doméstico s/ Registro em CTPS</option>
+                <option value="profissional-liberal">Profissional Liberal</option>
+                <option value="auto-congestionado">Auto congestionado/Congestionado</option>
+                <option value="associado">Associado</option>
+                <option value="cooperado">Cooperado</option>
+                <option value="assentado">Assentado</option>
+                <option value="aposentado">Aposentado</option>
+                <option value="trabalhador-nao-remunerado">Trabalhador não Remunerado</option>
+                <option value="servidor-publico">Servidor Público Estatutário</option>
+                <option value="agricultor-familiar">Agricultor Familiar</option>
+                <option value="detento-egresso">Detento/Egresso Sistema Penal</option>
+                <option value="egresso-socio-educativa">Egresso Inst. Sócio-Educativa</option>
+                <option value="jovem-aprendiz">Jovem Aprendiz</option>
+              </select>
+            </div>
+            <div class="filtro-field">
+              <label for="filter-municipio">Município</label>
+              <select id="filter-municipio" class="govbr-select">
+                <option value="cabedelo" selected>Cabedelo</option>
+                <option value="joao-pessoa">João Pessoa</option>
+                <option value="campina-grande">Campina Grande</option>
+              </select>
+            </div>
+            <div class="filtros-actions">
+              <a href="#"
+                 class="link-mais-filtros"
+                 id="link-mais-filtros"
+                 data-modal-target="modal-filtros-avancados"
+                 role="button"
+                 aria-haspopup="dialog">Mais filtros</a>
+              <button type="submit" class="govbr-btn govbr-btn-primary" data-filter-btn>
+                Filtrar
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- ── Tabela de Trabalhadores ─────────────────────── -->
+      <section class="table-section" aria-label="Trabalhadores">
+        <div class="table-header-row">
+          <h2 class="table-title">Trabalhadores</h2>
+          <div class="table-actions">
+            <button class="legenda-link"
+                    type="button"
+                    data-modal-target="modal-legenda"
+                    aria-haspopup="dialog">
+              <i class="fa-solid fa-circle-info"></i>
+              Legenda
+            </button>
+          </div>
+        </div>
+
+        <div class="govbr-table-wrapper">
+          <table class="govbr-table" id="table-trabalhadores" aria-label="Lista de trabalhadores">
+            <thead>
+              <tr>
+                <th class="col-checkbox" scope="col">
+                  <input type="checkbox"
+                         data-select-all
+                         aria-label="Selecionar todos"
+                         title="Selecionar todos" />
+                </th>
+                <th scope="col">Indicadores</th>
+                <th scope="col">PIS/PASEP/NIS/NIT</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Vínculo CNIS</th>
+                <th scope="col" title="Condição cadastrada pelo trabalhador" style="cursor:help;">
+                  Condição
+                  <i class="fa-solid fa-circle-info" style="font-size:10px;color:var(--color-primary);margin-left:4px;" aria-hidden="true"></i>
+                </th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Município</th>
+                <th scope="col">Telefone(s)</th>
+                <th scope="col" style="text-align:center;">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Linha 1 -->
+              <tr>
+                <td class="col-checkbox">
+                  <input type="checkbox"
+                         data-row-checkbox
+                         value="444.4444.44-4"
+                         aria-label="Selecionar Florentina das Neves Menezes de Aragão" />
+                </td>
+                <td>
+                  <div class="indicators-cell">
+                    <!-- P = prioritário -->
+                    <span class="ind-icon ind-p" title="Trabalhador prioritário recomendado pelo EmpregaAI"
+                          style="border-radius:3px;width:18px;height:18px;font-size:11px;">P</span>
+                    <!-- Escudo monitorado SD (verde) -->
+                    <span class="ind-icon ind-sd-monitor" title="Monitorado pelo Seguro Desemprego" style="position:relative;">
+                      <i class="fa-solid fa-shield" style="font-size:15px;color:#9e9d9d;"></i>
+                      <span class="ind-sd-dot green" style="position:absolute;bottom:-1px;right:-1px;width:9px;height:9px;border-radius:50%;background:var(--color-success);border:1.5px solid #fff;"></span>
+                    </span>
+                  </div>
+                </td>
+                <td class="col-pis">444.4444.44-4</td>
+                <td>Florentina das Neves Menezes de Aragão</td>
+                <td><span class="badge badge-danger">Desempregado</span></td>
+                <td>Desempregado</td>
+                <td>Renascer</td>
+                <td>Cabedelo – PB</td>
+                <td>(83) 9 9812-3456</td>
+                <td class="col-btn" style="text-align:center;">
+                  <div style="display:flex;gap:4px;justify-content:center;">
+                    <a href="detalhes-batimento.html?pis=444.4444.44-4&nome=Florentina"
+                       class="btn-icon-action"
+                       title="Conferir detalhes do batimento trabalhador x vaga"
+                       aria-label="Conferir batimento de Florentina das Neves Menezes de Aragão">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <a href="cadastro-trabalhador.html?pis=444.4444.44-4&nome=Florentina"
+                       class="btn-icon-action btn-icon-action--circle"
+                       title="Visualizar cadastro do trabalhador"
+                       aria-label="Ver cadastro de Florentina das Neves Menezes de Aragão">
+                      <i class="fa-solid fa-user"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Linha 2 -->
+              <tr>
+                <td class="col-checkbox">
+                  <input type="checkbox"
+                         data-row-checkbox
+                         value="555.5555.55-5"
+                         aria-label="Selecionar Daniel dos Anjos Pereira de Souza" />
+                </td>
+                <td>
+                  <div class="indicators-cell">
+                    <!-- Escudo NÃO monitorado SD (vermelho) -->
+                    <span class="ind-icon ind-sd-monitor" title="Não monitorado pelo Seguro Desemprego" style="position:relative;">
+                      <i class="fa-solid fa-shield" style="font-size:15px;color:#9e9d9d;"></i>
+                      <span style="position:absolute;bottom:-1px;right:-1px;width:9px;height:9px;border-radius:50%;background:var(--color-danger);border:1.5px solid #fff;"></span>
+                    </span>
+                  </div>
+                </td>
+                <td class="col-pis">555.5555.55-5</td>
+                <td>Daniel dos Anjos Pereira de Souza</td>
+                <td><span class="badge badge-danger">Desempregado</span></td>
+                <td>Desempregado</td>
+                <td>Centro</td>
+                <td>João Pessoa – PB</td>
+                <td>(83) 9 9745-1234</td>
+                <td class="col-btn" style="text-align:center;">
+                  <div style="display:flex;gap:4px;justify-content:center;">
+                    <a href="detalhes-batimento.html?pis=555.5555.55-5&nome=Daniel"
+                       class="btn-icon-action"
+                       title="Conferir detalhes do batimento trabalhador x vaga"
+                       aria-label="Conferir batimento de Daniel dos Anjos Pereira de Souza">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <a href="cadastro-trabalhador.html?pis=555.5555.55-5&nome=Daniel"
+                       class="btn-icon-action btn-icon-action--circle"
+                       title="Visualizar cadastro do trabalhador"
+                       aria-label="Ver cadastro de Daniel dos Anjos Pereira de Souza">
+                      <i class="fa-solid fa-user"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Linha 3 -->
+              <tr>
+                <td class="col-checkbox">
+                  <input type="checkbox"
+                         data-row-checkbox
+                         value="666.6666.66-6"
+                         aria-label="Selecionar Sâmela da Costa Marques" />
+                </td>
+                <td>
+                  <div class="indicators-cell">
+                    <!-- Escudo monitorado SD (verde) -->
+                    <span class="ind-icon ind-sd-monitor" title="Monitorado pelo Seguro Desemprego" style="position:relative;">
+                      <i class="fa-solid fa-shield" style="font-size:15px;color:#9e9d9d;"></i>
+                      <span style="position:absolute;bottom:-1px;right:-1px;width:9px;height:9px;border-radius:50%;background:var(--color-success);border:1.5px solid #fff;"></span>
+                    </span>
+                  </div>
+                </td>
+                <td class="col-pis">666.6666.66-6</td>
+                <td>Sâmela da Costa Marques</td>
+                <td><span class="badge badge-success">Empregado</span></td>
+                <td>Pequeno/Micro Empreendedor</td>
+                <td>Intermares</td>
+                <td>Cabedelo – PB</td>
+                <td>(83) 9 8876-5432</td>
+                <td class="col-btn" style="text-align:center;">
+                  <div style="display:flex;gap:4px;justify-content:center;">
+                    <a href="detalhes-batimento.html?pis=666.6666.66-6&nome=Samela"
+                       class="btn-icon-action"
+                       title="Conferir detalhes do batimento trabalhador x vaga"
+                       aria-label="Conferir batimento de Sâmela da Costa Marques">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <a href="cadastro-trabalhador.html?pis=666.6666.66-6&nome=Samela"
+                       class="btn-icon-action btn-icon-action--circle"
+                       title="Visualizar cadastro do trabalhador"
+                       aria-label="Ver cadastro de Sâmela da Costa Marques">
+                      <i class="fa-solid fa-user"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Linha 4 — com indicador Recomendado pela IA -->
+              <tr>
+                <td class="col-checkbox">
+                  <input type="checkbox"
+                         data-row-checkbox
+                         value="777.7777.77-7"
+                         aria-label="Selecionar Carlos Eduardo Monteiro" />
+                </td>
+                <td>
+                  <div class="indicators-cell">
+                    <!-- Tag IA -->
+                    <span style="background:var(--color-success-bg);color:var(--color-success);border:1.5px solid var(--color-success);font-weight:700;font-size:10px;padding:2px 6px;border-radius:10px;white-space:nowrap;display:inline-flex;align-items:center;gap:3px;"
+                          title="Recomendado pelo EmpregaAI">
+                      <i class="fa-solid fa-robot" style="font-size:9px;"></i> IA
+                    </span>
+                    <!-- Escudo monitorado SD (verde) -->
+                    <span class="ind-icon ind-sd-monitor" title="Monitorado pelo Seguro Desemprego" style="position:relative;">
+                      <i class="fa-solid fa-shield" style="font-size:15px;color:#9e9d9d;"></i>
+                      <span style="position:absolute;bottom:-1px;right:-1px;width:9px;height:9px;border-radius:50%;background:var(--color-success);border:1.5px solid #fff;"></span>
+                    </span>
+                  </div>
+                </td>
+                <td class="col-pis">777.7777.77-7</td>
+                <td>Carlos Eduardo Monteiro</td>
+                <td><span class="badge badge-danger">Desempregado</span></td>
+                <td>Desempregado</td>
+                <td>Mangabeira</td>
+                <td>João Pessoa – PB</td>
+                <td>(83) 9 9901-7890</td>
+                <td class="col-btn" style="text-align:center;">
+                  <div style="display:flex;gap:4px;justify-content:center;">
+                    <a href="detalhes-batimento.html?pis=777.7777.77-7&nome=Carlos"
+                       class="btn-icon-action"
+                       title="Conferir detalhes do batimento trabalhador x vaga"
+                       aria-label="Conferir batimento de Carlos Eduardo Monteiro">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <a href="cadastro-trabalhador.html?pis=777.7777.77-7&nome=Carlos"
+                       class="btn-icon-action btn-icon-action--circle"
+                       title="Visualizar cadastro do trabalhador"
+                       aria-label="Ver cadastro de Carlos Eduardo Monteiro">
+                      <i class="fa-solid fa-user"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Paginação -->
+        <div class="govbr-pagination" id="pagination-trabalhadores" aria-label="Paginação">
+          <div class="pagination-info-left">
+            <div class="page-size-select">
+              <label for="page-size-1">Exibir</label>
+              <select id="page-size-1" data-page-size aria-label="Itens por página">
+                <option value="10" selected>10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <span class="pagination-count" data-pagination-count aria-live="polite">
+              1-10 de 4 trabalhadores
+            </span>
+          </div>
+          <div class="pagination-nav">
+            <span class="pagination-label">Página</span>
+            <div class="pagination-page-select">
+              <select data-page-select aria-label="Selecionar página">
+                <option value="1" selected>01</option>
+              </select>
+            </div>
+            <button class="pagination-btn" data-page-prev aria-label="Página anterior" disabled>
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="pagination-btn" data-page-next aria-label="Próxima página" disabled>
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Footer da tabela -->
+        <div class="table-footer">
+          <button class="govbr-btn govbr-btn-primary govbr-btn-lg"
+                  type="button"
+                  data-convocar-email
+                  data-require-selection
+                  aria-label="Convocar trabalhadores selecionados por e-mail">
+            <i class="fa-solid fa-envelope"></i>
+            Convocar selecionados por email
+          </button>
+          <button class="govbr-btn govbr-btn-lg"
+                  type="button"
+                  data-convocar-ctps
+                  data-require-selection
+                  style="background:var(--color-primary-dark);border-color:var(--color-primary-dark);color:#fff;"
+                  aria-label="Notificar selecionado(s) pela CTPS Digital">
+            <i class="fa-solid fa-id-card"></i>
+            Notificar selecionado(s) pela CTPS Digital
+          </button>
+        </div>
+
+      </section><!-- /table-section -->
+
+    </main>
+
+  </div><!-- /app-layout -->
+
+  <!-- ══════════ BARRA INFERIOR DE ATENDIMENTO ══════════ -->
+  <footer class="barra-atendimento" role="contentinfo" aria-label="Duração do atendimento">
+    <div class="barra-atendimento-duracao">
+      <i class="fa-regular fa-clock" aria-hidden="true"></i>
+      <span>Duração do atendimento:</span>
+      <strong class="barra-atendimento-tempo">00:25</strong>
+    </div>
+  </footer>
+
+  <!-- ╔══════════════════════════════════════════════════════╗
+       ║  MODAL — Flexibilizar critérios                      ║
+       ╚══════════════════════════════════════════════════════╝ -->
+  <div class="govbr-modal-overlay"
+       id="modal-flexibilizar"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-flex-title">
+
+    <div class="govbr-modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-flex-title">Flexibilizar critérios</h2>
+        <button class="modal-close-btn"
+                data-modal-close="modal-flexibilizar"
+                aria-label="Fechar modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">
+          Ao flexibilizar, mais candidatos podem se enquadrar às características das vagas.
+        </p>
+        <form id="flex-form" novalidate>
+          <div class="modal-checkboxes">
+            <label class="govbr-checkbox">
+              <input type="checkbox" value="comprovacao-experiencia" />
+              <span>Comprovação de Experiência</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" value="deficiencia" />
+              <span>Deficiência</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" value="escolaridade" />
+              <span>Escolaridade</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" value="exigencia-habilitacao" />
+              <span>Exigência de Habilitação</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" value="experiencia-profissional" />
+              <span>Experiência profissional</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" value="idioma" />
+              <span>Idioma</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" value="tempo-habilitacao" />
+              <span>Tempo de Habilitação</span>
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="govbr-btn govbr-btn-secondary"
+                type="button"
+                data-modal-close="modal-flexibilizar">
+          Voltar
+        </button>
+        <button class="govbr-btn govbr-btn-primary"
+                type="submit"
+                form="flex-form"
+                id="btn-flex-submit">
+          Flexibilizar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════╗
+       ║  MODAL — Legenda                                     ║
+       ╚══════════════════════════════════════════════════════╝ -->
+  <div class="govbr-modal-overlay"
+       id="modal-legenda"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-leg-title">
+
+    <div class="govbr-modal legenda-modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-leg-title">Legenda</h2>
+        <button class="modal-close-btn"
+                data-modal-close="modal-legenda"
+                aria-label="Fechar modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Alertas -->
+        <h3 class="legenda-alertas-title">Alertas</h3>
+        <div class="legenda-items">
+          <!-- Monitorado pelo SD -->
+          <div class="legenda-item">
+            <div class="legenda-icon-wrap">
+              <i class="fa-solid fa-shield shield-icon" style="font-size:32px;color:#b0b0b0;"></i>
+              <span class="badge-dot badge-dot-green"></span>
+            </div>
+            <span class="legenda-item-label">Monitorado pelo seguro desemprego</span>
+          </div>
+          <!-- Não monitorado pelo SD -->
+          <div class="legenda-item">
+            <div class="legenda-icon-wrap">
+              <i class="fa-solid fa-shield shield-icon" style="font-size:32px;color:#b0b0b0;"></i>
+              <span class="badge-dot badge-dot-red"></span>
+            </div>
+            <span class="legenda-item-label">Não monitorado pelo seguro desemprego</span>
+          </div>
+          <!-- Trabalhador prioritário -->
+          <div class="legenda-item">
+            <div class="legenda-icon-wrap">
+              <span style="
+                background: var(--color-primary);
+                color: #fff;
+                font-weight: 700;
+                font-size: 13px;
+                width: 28px;
+                height: 28px;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              ">P</span>
+            </div>
+            <span class="legenda-item-label">Trabalhador prioritário</span>
+          </div>
+          <!-- Recomendado pelo EmpregaAI -->
+          <div class="legenda-item">
+            <div class="legenda-icon-wrap">
+              <span style="
+                background: var(--color-success-bg);
+                color: var(--color-success);
+                border: 1.5px solid var(--color-success);
+                font-weight: 700;
+                font-size: 10px;
+                padding: 2px 7px;
+                border-radius: 10px;
+                white-space: nowrap;
+                display: inline-flex;
+                align-items: center;
+                gap: 3px;
+              ">
+                <i class="fa-solid fa-robot" style="font-size:9px;"></i> IA
+              </span>
+            </div>
+            <span class="legenda-item-label">Recomendado pelo EmpregaAI</span>
+          </div>
+        </div>
+
+        <!-- Ações -->
+        <h3 class="legenda-acoes-title">Ações</h3>
+        <div class="legenda-acoes-list">
+          <div class="legenda-acao">
+            <div class="legenda-acao-icon" aria-hidden="true">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <span class="legenda-acao-label">Conferir detalhes do batimento trabalhador x vaga</span>
+          </div>
+          <div class="legenda-acao">
+            <div class="legenda-acao-circle" aria-hidden="true">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <span class="legenda-acao-label">Visualizar cadastro do trabalhador</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ╔══════════════════════════════════════════════════════╗
+       ║  MODAL — Filtros Avançados                           ║
+       ╚══════════════════════════════════════════════════════╝ -->
+  <div class="govbr-modal-overlay"
+       id="modal-filtros-avancados"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-filtros-title">
+
+    <div class="govbr-modal govbr-modal--wide">
+      <!-- Cabeçalho -->
+      <div class="modal-header">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <i class="fa-solid fa-sliders" style="color:var(--color-primary);font-size:15px;"></i>
+          <h2 class="modal-title" id="modal-filtros-title">Filtros avançados</h2>
+        </div>
+        <button class="modal-close-btn"
+                data-modal-close="modal-filtros-avancados"
+                aria-label="Fechar filtros avançados">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Corpo -->
+      <div class="modal-body" style="padding:var(--spacing-scale-3) var(--spacing-scale-4);">
+        <form id="form-filtros-avancados" novalidate>
+
+          <!-- ── Linha 1: Identificação + Condição ── -->
+          <div class="filtros-modal-grid">
+
+            <div class="filtro-modal-field">
+              <label for="fav-identificacao" class="filtro-modal-label">Identificação</label>
+              <input type="text"
+                     id="fav-identificacao"
+                     class="govbr-input"
+                     placeholder="CPF, PIS ou NIT"
+                     autocomplete="off" />
+            </div>
+
+            <div class="filtro-modal-field">
+              <label for="fav-condicao" class="filtro-modal-label">Condição</label>
+              <select id="fav-condicao" class="govbr-select">
+                <option value="">Todas</option>
+                <option value="desempregado">Desempregado</option>
+                <option value="empregado">Empregado</option>
+                <option value="primeiro-emprego">Primeiro emprego</option>
+                <option value="microempreendedor">Pequeno/Micro Empreendedor</option>
+              </select>
+            </div>
+
+            <div class="filtro-modal-field">
+              <label for="fav-municipio" class="filtro-modal-label">Município</label>
+              <select id="fav-municipio" class="govbr-select">
+                <option value="">Todos</option>
+                <option value="cabedelo" selected>Cabedelo</option>
+                <option value="joao-pessoa">João Pessoa</option>
+                <option value="santa-rita">Santa Rita</option>
+                <option value="campina-grande">Campina Grande</option>
+                <option value="bayeux">Bayeux</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- ── Linha 2: Situação ── -->
+          <div class="filtro-modal-section-title">Situação do trabalhador</div>
+          <div class="filtros-modal-checkbox-grid">
+            <label class="govbr-checkbox">
+              <input type="checkbox" name="situacao" value="buscando-emprego" checked />
+              <span>Buscando emprego</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" name="situacao" value="egresso-sistema-penal" />
+              <span>Egresso do sistema penal</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" name="situacao" value="refugiado" />
+              <span>Refugiado / migrante</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" name="situacao" value="reabilitado-inss" />
+              <span>Reabilitado pelo INSS</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" name="situacao" value="seguro-desemprego" />
+              <span>Receptor de seguro-desemprego</span>
+            </label>
+            <label class="govbr-checkbox">
+              <input type="checkbox" name="situacao" value="jovem-aprendiz" />
+              <span>Jovem aprendiz</span>
+            </label>
+          </div>
+
+          <div class="filtros-modal-divider"></div>
+
+          <!-- ── Linha 3: Sexo + Faixa etária + Experiência ── -->
+          <div class="filtros-modal-grid">
+
+            <div class="filtro-modal-field">
+              <label class="filtro-modal-label">Sexo</label>
+              <div class="radio-group-row">
+                <label class="govbr-radio">
+                  <input type="radio" name="sexo" value="indiferente" checked />
+                  <span>Indiferente</span>
+                </label>
+                <label class="govbr-radio">
+                  <input type="radio" name="sexo" value="feminino" />
+                  <span>F</span>
+                </label>
+                <label class="govbr-radio">
+                  <input type="radio" name="sexo" value="masculino" />
+                  <span>M</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filtro-modal-field">
+              <label for="fav-experiencia" class="filtro-modal-label">Tempo de experiência (meses)</label>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <input type="number"
+                       id="fav-exp-min"
+                       class="govbr-input"
+                       placeholder="Mín"
+                       min="0"
+                       style="width:80px;" />
+                <span style="font-size:var(--font-size-xs);color:var(--color-text-secondary);">até</span>
+                <input type="number"
+                       id="fav-exp-max"
+                       class="govbr-input"
+                       placeholder="Máx"
+                       min="0"
+                       style="width:80px;" />
+              </div>
+            </div>
+
+            <div class="filtro-modal-field">
+              <label for="fav-atualizacao" class="filtro-modal-label">Data de atualização cadastral</label>
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                <input type="date"
+                       id="fav-data-inicio"
+                       class="govbr-input"
+                       style="width:140px;"
+                       aria-label="Data inicial" />
+                <span style="font-size:var(--font-size-xs);color:var(--color-text-secondary);">até</span>
+                <input type="date"
+                       id="fav-data-fim"
+                       class="govbr-input"
+                       style="width:140px;"
+                       aria-label="Data final" />
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── Faixa etária ── -->
+          <div class="filtros-modal-grid" style="margin-top:var(--space-3);">
+            <div class="filtro-modal-field">
+              <label class="filtro-modal-label">Faixa etária</label>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <input type="number"
+                       id="fav-idade-min"
+                       class="govbr-input"
+                       placeholder="Idade mín."
+                       min="14" max="99"
+                       style="width:110px;" />
+                <span style="font-size:var(--font-size-xs);color:var(--color-text-secondary);">até</span>
+                <input type="number"
+                       id="fav-idade-max"
+                       class="govbr-input"
+                       placeholder="Idade máx."
+                       min="14" max="99"
+                       style="width:110px;" />
+              </div>
+            </div>
+
+            <div class="filtro-modal-field">
+              <label for="fav-escolaridade" class="filtro-modal-label">Escolaridade</label>
+              <select id="fav-escolaridade" class="govbr-select">
+                <option value="">Qualquer</option>
+                <option value="fundamental-incompleto">Fundamental incompleto</option>
+                <option value="fundamental-completo">Fundamental completo</option>
+                <option value="medio-incompleto">Médio incompleto</option>
+                <option value="medio-completo">Médio completo</option>
+                <option value="tecnico">Técnico</option>
+                <option value="superior-incompleto">Superior incompleto</option>
+                <option value="superior-completo">Superior completo</option>
+                <option value="pos-graduacao">Pós-graduação / MBA</option>
+                <option value="mestrado">Mestrado</option>
+                <option value="doutorado">Doutorado</option>
+              </select>
+            </div>
+
+            <div class="filtro-modal-field">
+              <label for="fav-curso" class="filtro-modal-label">Curso</label>
+              <input type="text"
+                     id="fav-curso"
+                     class="govbr-input"
+                     placeholder="Ex: Ciências Contábeis"
+                     autocomplete="off" />
+            </div>
+
+          </div>
+
+          <div class="filtros-modal-divider"></div>
+
+          <!-- ── PcD ── -->
+          <div class="filtro-modal-section-title">Tipos de deficiência</div>
+          <div class="filtros-modal-grid" style="grid-template-columns: 1fr 1fr;">
+
+            <!-- Select múltiplo agrupado -->
+            <div class="filtro-modal-field" style="grid-column:1/-1;">
+              <label for="fav-pcd" class="filtro-modal-label">
+                Selecione os tipos (Ctrl + clique para múltiplos)
+              </label>
+              <select id="fav-pcd"
+                      name="pcd"
+                      class="govbr-select-multiple"
+                      multiple
+                      size="10"
+                      aria-label="Tipos de deficiência">
+                <optgroup label="Física">
+                  <option value="fisica-amputacao">Amputação</option>
+                  <option value="fisica-cadeirante">Cadeirante</option>
+                  <option value="fisica-membros-inferiores">Membros inferiores</option>
+                  <option value="fisica-membros-superiores">Membros superiores</option>
+                  <option value="fisica-nanismo">Nanismo</option>
+                  <option value="fisica-ostomia">Ostomia</option>
+                  <option value="fisica-paralisia-cerebral">Paralisia Cerebral</option>
+                  <option value="fisica-parcial">Parcial</option>
+                  <option value="fisica-um-membro-inferior">Um membro inferior</option>
+                  <option value="fisica-um-membro-superior">Um membro superior</option>
+                </optgroup>
+                <optgroup label="Auditiva">
+                  <option value="auditiva-bilateral-parcial">Surdez bilateral parcial</option>
+                  <option value="auditiva-bilateral-total">Surdez bilateral total</option>
+                </optgroup>
+                <optgroup label="Visual">
+                  <option value="visual-baixa-visao">Baixa visão</option>
+                  <option value="visual-cegueira">Cegueira</option>
+                </optgroup>
+                <optgroup label="Mental / Intelectual">
+                  <option value="mental-intelectual">Mental/Intelectual</option>
+                </optgroup>
+                <optgroup label="Reabilitado">
+                  <option value="reabilitado">Reabilitado</option>
+                </optgroup>
+              </select>
+              <span style="font-size:var(--font-size-xs);color:var(--color-text-secondary);margin-top:4px;">
+                <i class="fa-solid fa-info-circle" style="margin-right:3px;"></i>
+                Mantenha Ctrl pressionado para selecionar vários tipos.
+              </span>
+            </div>
+
+          </div>
+
+          <div class="filtros-modal-divider"></div>
+
+          <!-- ── Linha final: Nacionalidade + IA ── -->
+          <div class="filtros-modal-grid">
+
+            <div class="filtro-modal-field">
+              <label for="fav-nacionalidade" class="filtro-modal-label">Nacionalidade</label>
+              <select id="fav-nacionalidade" class="govbr-select">
+                <option value="">Todas</option>
+                <option value="brasileira" selected>Brasileira</option>
+                <option value="estrangeira">Estrangeira</option>
+                <option value="naturalizado">Naturalizado</option>
+              </select>
+            </div>
+
+            <div class="filtro-modal-field">
+              <label class="filtro-modal-label">Recomendados pela IA (EmpregaAI)</label>
+              <div class="radio-group-row">
+                <label class="govbr-radio">
+                  <input type="radio" name="ia" value="todos" checked />
+                  <span>Todos</span>
+                </label>
+                <label class="govbr-radio">
+                  <input type="radio" name="ia" value="sim" />
+                  <span>Apenas recomendados</span>
+                </label>
+                <label class="govbr-radio">
+                  <input type="radio" name="ia" value="nao" />
+                  <span>Não recomendados</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Tags de filtros ativos -->
+          <div id="filtros-ativos-wrap" style="margin-top:var(--space-3);display:none;">
+            <div style="font-size:var(--font-size-xs);font-weight:600;color:var(--color-text-secondary);margin-bottom:6px;">
+              Filtros ativos:
+            </div>
+            <div id="filtros-ativos-tags" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Rodapé -->
+      <div class="modal-footer" style="justify-content:space-between;">
+        <button class="govbr-btn govbr-btn-secondary govbr-btn-sm"
+                type="button"
+                id="btn-limpar-filtros"
+                style="color:var(--color-danger);border-color:var(--color-danger);">
+          <i class="fa-solid fa-eraser"></i> Limpar filtros
+        </button>
+        <div style="display:flex;gap:var(--space-3);">
+          <button class="govbr-btn govbr-btn-secondary"
+                  type="button"
+                  data-modal-close="modal-filtros-avancados">
+            Cancelar
+          </button>
+          <button class="govbr-btn govbr-btn-primary"
+                  type="submit"
+                  form="form-filtros-avancados"
+                  id="btn-aplicar-filtros">
+            <i class="fa-solid fa-filter"></i> Aplicar filtros
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════╗
+       ║  MODAL — Finalizar atendimento                       ║
+       ╚══════════════════════════════════════════════════════╝ -->
+  <div class="govbr-modal-overlay"
+       id="modal-finalizar-atendimento"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-finalizar-title">
+
+    <div class="govbr-modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-finalizar-title">Finalizar atendimento</h2>
+        <button class="modal-close-btn"
+                data-modal-close="modal-finalizar-atendimento"
+                aria-label="Fechar modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-desc">
+          Deseja realmente finalizar o atendimento ao empregador DIRECAO GERAL BB?
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="govbr-btn govbr-btn-secondary"
+                type="button"
+                data-modal-close="modal-finalizar-atendimento">
+          Não
+        </button>
+        <a href="fimAtendimento.html" class="govbr-btn govbr-btn-danger" role="button">
+          Sim
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Lógica do modal de filtros avançados
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const form         = document.getElementById('form-filtros-avancados');
+      const btnLimpar    = document.getElementById('btn-limpar-filtros');
+      const tagsWrap     = document.getElementById('filtros-ativos-wrap');
+      const tagsContainer= document.getElementById('filtros-ativos-tags');
+
+      // Não há mais checkbox "Qualquer deficiência" — usa select múltiplo
+
+      // Aplicar filtros
+      if (form) {
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          const filtros = coletarFiltros();
+          renderizarTags(filtros);
+          window.closeModal('modal-filtros-avancados');
+
+          // Atualiza o indicador no link "Mais filtros"
+          const count = filtros.length;
+          const link = document.getElementById('link-mais-filtros');
+          if (link) {
+            link.innerHTML = count > 0
+              ? `Mais filtros <span class="filtros-badge">${count}</span>`
+              : 'Mais filtros';
+          }
+          window.showToast(`${count} filtro(s) aplicado(s).`, 'success');
+        });
+      }
+
+      // Limpar filtros
+      if (btnLimpar) {
+        btnLimpar.addEventListener('click', () => {
+          if (form) form.reset();
+          if (tagsWrap) tagsWrap.style.display = 'none';
+          if (tagsContainer) tagsContainer.innerHTML = '';
+          const link = document.getElementById('link-mais-filtros');
+          if (link) link.innerHTML = 'Mais filtros';
+        });
+      }
+
+      function coletarFiltros() {
+        const ativos = [];
+        const id = document.getElementById('fav-identificacao')?.value?.trim();
+        if (id) ativos.push({ label: 'Identificação', value: id });
+
+        const condicao = document.getElementById('fav-condicao');
+        if (condicao?.value) ativos.push({ label: 'Condição', value: condicao.options[condicao.selectedIndex].text });
+
+        const municipio = document.getElementById('fav-municipio');
+        if (municipio?.value) ativos.push({ label: 'Município', value: municipio.options[municipio.selectedIndex].text });
+
+        const situacoes = [...document.querySelectorAll('input[name="situacao"]:checked')];
+        situacoes.forEach(s => ativos.push({ label: 'Situação', value: s.closest('label').querySelector('span').textContent }));
+
+        const sexo = document.querySelector('input[name="sexo"]:checked');
+        if (sexo && sexo.value !== 'indiferente') ativos.push({ label: 'Sexo', value: sexo.closest('label').querySelector('span').textContent });
+
+        const expMin = document.getElementById('fav-exp-min')?.value;
+        const expMax = document.getElementById('fav-exp-max')?.value;
+        if (expMin || expMax) ativos.push({ label: 'Experiência', value: `${expMin || '0'}–${expMax || '∞'} meses` });
+
+        const dataIni = document.getElementById('fav-data-inicio')?.value;
+        const dataFim = document.getElementById('fav-data-fim')?.value;
+        if (dataIni || dataFim) ativos.push({ label: 'Atualização', value: `${dataIni || '...'} a ${dataFim || '...'}` });
+
+        const idadeMin = document.getElementById('fav-idade-min')?.value;
+        const idadeMax = document.getElementById('fav-idade-max')?.value;
+        if (idadeMin || idadeMax) ativos.push({ label: 'Faixa etária', value: `${idadeMin || '14'}–${idadeMax || '99'} anos` });
+
+        const esc = document.getElementById('fav-escolaridade');
+        if (esc?.value) ativos.push({ label: 'Escolaridade', value: esc.options[esc.selectedIndex].text });
+
+        const curso = document.getElementById('fav-curso')?.value?.trim();
+        if (curso) ativos.push({ label: 'Curso', value: curso });
+
+        const nac = document.getElementById('fav-nacionalidade');
+        if (nac?.value) ativos.push({ label: 'Nacionalidade', value: nac.options[nac.selectedIndex].text });
+
+        const pcds = [...(document.getElementById('fav-pcd')?.selectedOptions || [])];
+        pcds.forEach(opt => ativos.push({ label: 'PcD', value: opt.textContent }));
+
+        const ia = document.querySelector('input[name="ia"]:checked');
+        if (ia && ia.value !== 'todos') ativos.push({ label: 'EmpregaAI', value: ia.closest('label').querySelector('span').textContent });
+
+        return ativos;
+      }
+
+      function renderizarTags(filtros) {
+        if (!tagsWrap || !tagsContainer) return;
+        tagsContainer.innerHTML = '';
+        if (filtros.length === 0) { tagsWrap.style.display = 'none'; return; }
+        tagsWrap.style.display = 'block';
+        filtros.forEach(f => {
+          const tag = document.createElement('span');
+          tag.className = 'filtro-ativo-tag';
+          tag.innerHTML = `<strong>${f.label}:</strong> ${f.value}`;
+          tagsContainer.appendChild(tag);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

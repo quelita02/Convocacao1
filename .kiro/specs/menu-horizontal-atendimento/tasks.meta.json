@@ -1,0 +1,404 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Declarar o token de altura da barra no bloco `:root`": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677986700
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677997410
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678037407
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683402910
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683412742
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683452328
+      }
+    ],
+    "1.2 Adicionar o bloco de estilos `.barra-atendimento` ao final do `style.css`": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677986876
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678043242
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678111406
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683402967
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683457611
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683538294
+      }
+    ],
+    "1.3 Reservar espaço inferior no `.main-content`": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677987010
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678115240
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678160110
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683403019
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683542345
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683581003
+      }
+    ],
+    "1.4 Adicionar a regra responsiva da barra": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677987192
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678164790
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678212196
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683403069
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683586329
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683624960
+      }
+    ],
+    "2.1 Inserir o bloco da barra em `index.html`": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677987310
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678217796
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678300067
+      }
+    ],
+    "2.2 Inserir o bloco da barra em `lista-vagas.html`": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677987449
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678219264
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678301463
+      }
+    ],
+    "2.3 Inserir o bloco da barra em `detalhes-vaga.html`": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677987639
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678220644
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678302879
+      }
+    ],
+    "2.4 Inserir o bloco da barra em `cadastro-trabalhador.html`": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677987738
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678222037
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678304317
+      }
+    ],
+    "2.5 Inserir o bloco da barra em `detalhes-batimento.html`": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677987832
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678223338
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678305719
+      }
+    ],
+    "3.1 Criar `logout.html` no padrão GOV.BR": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677987936
+      },
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678306658
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683403381
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683636162
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683771252
+      }
+    ],
+    "3.2 Adicionar os estilos locais da página de logout": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787677988057
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683403426
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683877546
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683931876
+      }
+    ],
+    "1. Adicionar estilos da barra de atendimento ao `style.css`": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678212237
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683625063
+      }
+    ],
+    "2. Inserir o markup da barra nas páginas de atendimento": [
+      {
+        "executionId": "f97bb89d-4c6b-4ae1-a1a4-b6ca018cc568",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787678305765
+      }
+    ],
+    "2.1 Inserir o par barra + modal em `index.html`": [
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683403127
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683631795
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683759119
+      }
+    ],
+    "2.2 Inserir o par barra + modal em `lista-vagas.html`": [
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683403179
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683632231
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683760557
+      }
+    ],
+    "2.3 Inserir o par barra + modal em `detalhes-vaga.html`": [
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683403227
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683633590
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683762017
+      }
+    ],
+    "2.4 Inserir o par barra + modal em `cadastro-trabalhador.html`": [
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683403280
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683635038
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683763245
+      }
+    ],
+    "2.5 Inserir o par barra + modal em `detalhes-batimento.html`": [
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683403333
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683764478
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683871977
+      }
+    ],
+    "2. Inserir o par barra + modal de confirmação nas páginas de atendimento": [
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683872184
+      }
+    ],
+    "3. Criar a página de logout": [
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683932041
+      }
+    ],
+    "4.1 Verificar a consistência do par barra + modal nas cinco páginas": [
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787683943673
+      },
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787684009989
+      }
+    ],
+    "4. Checkpoint - Consistência entre páginas": [
+      {
+        "executionId": "e0ad5236-7ef8-4e80-8754-4fa739676979",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787684010207
+      }
+    ]
+  }
+}

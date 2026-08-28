@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Vagas — IMO GOV.BR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    /* Estilos específicos desta tela */
+    .emp-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-gray-2);
+      border-radius: var(--border-radius);
+      padding: var(--space-3) var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+    .emp-card-title {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-3);
+      padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--color-gray-2);
+    }
+    .emp-fields {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-2) var(--space-4);
+    }
+    .emp-field { display: flex; flex-direction: column; gap: 1px; }
+    .emp-label { font-size: var(--font-size-xs); color: var(--color-text-secondary); }
+    .emp-value { font-size: var(--font-size-sm); color: var(--color-text-primary); font-weight: 500; }
+
+    /* Tabs do empregador — Design System GOV.BR v3 */
+    .emp-tabs {
+      display: flex; gap: 0;
+      border-bottom: 3px solid var(--color-border);
+      margin-bottom: var(--spacing-scale-3);
+      overflow-x: auto;
+    }
+    .emp-tab-btn {
+      padding: var(--spacing-scale-1) var(--spacing-scale-3);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -3px;
+      font-family: var(--font-family-base);
+      font-size: var(--font-size-scale-base);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color .15s, border-color .15s, background .15s;
+    }
+    .emp-tab-btn:hover {
+      color: var(--color-primary);
+      background: var(--color-primary-pastel);
+    }
+    .emp-tab-btn.active {
+      color: var(--color-primary);
+      font-weight: var(--font-weight-bold);
+      border-bottom-color: var(--color-primary);
+      background: none;
+    }
+
+    /* Filtros da lista de vagas */
+    .vagas-filtros-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-gray-2);
+      border-radius: var(--border-radius);
+      padding: var(--space-3) var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+    .vagas-filtros-title {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .vagas-filtros-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3) var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+    .vagas-filtros-row {
+      display: flex; align-items: flex-end; gap: var(--space-3); flex-wrap: wrap;
+      margin-bottom: var(--space-3);
+    }
+
+    /* Status badges na tabela */
+    .badge-aberta      { background: #e3f5e1; color: #168821; }
+    .badge-prazo       { background: #fdf5ce; color: #856404; }
+    .badge-sub-periodo { background: #fee7e5; color: #e52207; }
+    .badge-limite      { background: #fee7e5; color: #a01400; }
+
+    /* Ícones de ação da tabela de vagas */
+    .vagas-actions-cell {
+      display: flex; align-items: center; gap: 4px; justify-content: center;
+    }
+
+    /* Paginação numérica */
+    .pag-numbers {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .pag-num {
+      width: 26px; height: 26px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: var(--font-size-xs); font-weight: 500;
+      border-radius: 4px;
+      color: var(--color-primary);
+      cursor: pointer;
+      transition: background .15s;
+      text-decoration: none;
+    }
+    .pag-num:hover { background: var(--color-primary-pastel); }
+    .pag-num.active {
+      background: var(--color-primary);
+      color: #fff;
+      font-weight: 700;
+    }
+    .pag-link {
+      font-size: var(--font-size-xs);
+      color: var(--color-primary);
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 0 4px;
+    }
+    .pag-link:hover { text-decoration: underline; }
+
+    /* Botões do rodapé */
+    .vagas-footer-actions {
+      display: flex; gap: var(--space-3); flex-wrap: wrap;
+      padding: var(--space-3) 0;
+    }
+
+    @media (max-width: 768px) {
+      .emp-fields { grid-template-columns: repeat(2, 1fr); }
+      .vagas-filtros-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Ação desabilitada (boneco de manifestação de interesse) */
+    .btn-icon-action--disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      pointer-events: none;
+      background: transparent;
+      color: var(--color-text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="govbr-header" role="banner">
+    <div class="header-brand">
+      <button class="header-close-btn" id="mobile-menu-toggle" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="header-logo">
+        <svg class="govbr-logo-svg" viewBox="0 0 100 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="9,3.5 10.5,8.5 15.5,8.5 11.5,11.5 13,16.5 9,13.5 5,16.5 6.5,11.5 2.5,8.5 7.5,8.5" fill="#FFCD07"/>
+          <text x="18" y="19" fill="#1351b4" font-family="Rawline,sans-serif" font-weight="700" font-size="14" letter-spacing="0.2">gov.br</text>
+        </svg>
+      </div>
+      <div class="header-divider" aria-hidden="true"></div>
+      <div class="header-system-info">
+        <div class="header-system-name">IMO – Intermediação de Mão-de-Obra</div>
+        <div class="header-system-subtitle">Ministério do Trabalho e Emprego</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="header-user">
+        <span>Olá, João</span>
+        <div class="header-avatar" aria-hidden="true">J</div>
+      </div>
+      <button class="header-icon-btn" aria-label="Notificações">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notification-badge" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- ══════════ BARRA SUPERIOR DE ATENDIMENTO ══════════ -->
+  <nav class="barra-atendimento-topo" aria-label="Ações do atendimento">
+    <a href="lista-vagas.html" class="barra-atendimento-item">
+      <i class="fa-solid fa-house" aria-hidden="true"></i>
+      <span>Página inicial do atendimento</span>
+    </a>
+
+    <button type="button"
+            class="barra-atendimento-item barra-atendimento-item--finalizar"
+            data-modal-target="modal-finalizar-atendimento"
+            aria-haspopup="dialog">
+      <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+      <span>Finalizar o atendimento</span>
+    </button>
+  </nav>
+
+  <div class="app-layout">
+
+    <!-- ══════════ MENU LATERAL ══════════ -->
+    <nav class="govbr-sidebar" aria-label="Menu principal">
+      <ul class="sidebar-nav" role="menubar">
+
+        <!-- Página inicial -->
+        <li role="none">
+          <a href="#" class="nav-item" role="menuitem">
+            <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+            <span class="nav-label">Página inicial</span>
+          </a>
+        </li>
+
+        <!-- Captação de vagas -->
+        <li class="nav-group" id="nav-group-captacao" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-briefcase"></i></span>
+            <span class="nav-label">Captação de vagas</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Recomendações do EmpregAI</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Gestão de Contatos</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Lembretes</a></li>
+          </ul>
+        </li>
+
+        <!-- Empregador -->
+        <li class="nav-group" id="nav-group-empregador" role="none">
+          <div class="nav-group-header open" role="menuitem" aria-haspopup="true" aria-expanded="true" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-building"></i></span>
+            <span class="nav-label">Empregador</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children expanded" role="menu">
+            <li role="none"><a href="lista-vagas.html" class="nav-subitem active" role="menuitem">Novo atendimento</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-divider" role="separator"></li>
+
+        <!-- Gerencial -->
+        <li class="nav-group" id="nav-group-gerencial" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-chart-bar"></i></span>
+            <span class="nav-label">Gerencial</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Cadastrar agente zoneador</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Cadastrar áreas de atuação</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Alterar áreas de atuação</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Igualdade Salarial</a></li>
+          </ul>
+        </li>
+
+        <!-- Operacional -->
+        <li class="nav-group" id="nav-group-operacional" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-gears"></i></span>
+            <span class="nav-label">Operacional</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Operações com NIT</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Disponibilidade do Sistema</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Parâmetros do sistema</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Informativo</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Instituições de ensino</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Postos de atendimento</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- ══════════ CONTEÚDO ══════════ -->
+    <main class="main-content" id="main-content" role="main">
+
+      <!-- Page header -->
+      <div class="page-header">
+        <h1 class="page-title">Atendimento ao empregador</h1>
+      </div>
+
+      <!-- ── Identificação do Empregador ─────────────────── -->
+      <div class="emp-card">
+        <div class="emp-card-title">Identificação do empregador</div>
+        <div class="emp-fields">
+          <div class="emp-field">
+            <span class="emp-label">Tipo de identificação</span>
+            <span class="emp-value">CNPJ</span>
+          </div>
+          <div class="emp-field">
+            <span class="emp-label">Número de identificação</span>
+            <span class="emp-value">00.000.000/0001-91</span>
+          </div>
+          <div class="emp-field">
+            <span class="emp-label">Nome de Fantasia</span>
+            <span class="emp-value">DIRECAO GERAL BB</span>
+          </div>
+          <div class="emp-field">
+            <span class="emp-label">Telefone</span>
+            <span class="emp-value">(83) 27363-2763</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Tabs do empregador ──────────────────────────── -->
+      <nav class="emp-tabs" aria-label="Seções do atendimento">
+        <button class="emp-tab-btn" type="button">Dados cadastrais</button>
+        <button class="emp-tab-btn active" type="button">Vagas</button>
+        <button class="emp-tab-btn" type="button">Pendências</button>
+        <button class="emp-tab-btn" type="button">Últimas Ações do Empregador</button>
+      </nav>
+
+      <!-- ── Filtros de Vagas ────────────────────────────── -->
+      <div class="vagas-filtros-card">
+        <div class="vagas-filtros-title">Filtros</div>
+
+        <!-- Checkbox topo -->
+        <div style="margin-bottom:var(--space-3);">
+          <label class="govbr-checkbox">
+            <input type="checkbox" id="filtro-posto" />
+            <span>Apenas vagas geridas por este posto</span>
+          </label>
+        </div>
+
+        <!-- Linha: Situação + Identificação -->
+        <div class="vagas-filtros-row">
+          <div class="filtro-modal-field" style="min-width:200px;">
+            <label class="filtro-modal-label">Situação:</label>
+            <div class="radio-group-row" style="padding-top:0;">
+              <label class="govbr-radio">
+                <input type="radio" name="situacao-vaga" value="andamento" checked />
+                <span>Vagas em andamento</span>
+              </label>
+              <label class="govbr-radio">
+                <input type="radio" name="situacao-vaga" value="encerradas" />
+                <span>Vagas encerradas</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filtro-modal-field" style="min-width:160px;">
+            <label for="filtro-vaga-id" class="filtro-modal-label">Identificação:</label>
+            <input type="text"
+                   id="filtro-vaga-id"
+                   class="govbr-input"
+                   placeholder=""
+                   autocomplete="off" />
+          </div>
+        </div>
+
+        <!-- Linha: Tipo de intermediação + Status -->
+        <div class="vagas-filtros-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="filtro-modal-field">
+            <label for="filtro-tipo-interm" class="filtro-modal-label">Tipo de intermediação:</label>
+            <select id="filtro-tipo-interm" class="govbr-select">
+              <option value="todos" selected>TODOS</option>
+              <option value="manifestacao-interesse">Por manifestação de interesse</option>
+              <option value="por-ocupacao">Por ocupação</option>
+            </select>
+          </div>
+          <div class="filtro-modal-field">
+            <label for="filtro-status-vaga" class="filtro-modal-label">Status:</label>
+            <select id="filtro-status-vaga" class="govbr-select">
+              <option value="" selected>SELECIONE UMA OPÇÃO VÁLIDA</option>
+              <option value="aberta">Aberta</option>
+              <option value="preenchida">Preenchida</option>
+              <option value="preenchida-outras-fontes">Preenchida por Outras Fontes</option>
+              <option value="cancelada-empregador">Cancelada pelo empregador</option>
+              <option value="prazo-expirado">Prazo de validade expirado</option>
+              <option value="limite-encaminhamento">Limite de encaminhamento expirado</option>
+              <option value="prazo-limite-expirado">Prazo e limite de encaminhamento expirado</option>
+              <option value="suspensa">Suspensa</option>
+              <option value="sub-periodo">Sub período expirado</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Botão filtrar -->
+        <div style="display:flex;justify-content:flex-end;">
+          <button class="govbr-btn govbr-btn-primary" type="button" id="btn-filtrar-vagas">
+            Filtrar
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Tabela de Vagas ─────────────────────────────── -->
+      <section class="table-section" aria-label="Lista de vagas">
+        <div class="table-header-row">
+          <h2 class="table-title">Vagas</h2>
+          <span style="font-size:var(--font-size-xs);color:var(--color-text-secondary);">Total: 6.043</span>
+        </div>
+
+        <div class="govbr-table-wrapper">
+          <table class="govbr-table" id="table-vagas" aria-label="Vagas do empregador">
+            <thead>
+              <tr>
+                <th scope="col">Identificação</th>
+                <th scope="col">Data de cadastro</th>
+                <th scope="col">Cargo</th>
+                <th scope="col" style="text-align:center;">Quant.</th>
+                <th scope="col">Status</th>
+                <th scope="col">Contratação</th>
+                <th scope="col" style="text-align:center;">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Vaga 1 -->
+              <tr>
+                <td>101040</td>
+                <td>19/08/2026</td>
+                <td>Agente Administrativo</td>
+                <td style="text-align:center;">10</td>
+                <td><span class="badge badge-aberta">Aberta</span></td>
+                <td>Permanente</td>
+                <td>
+                  <div class="vagas-actions-cell">
+                    <a href="visualizar-vaga.html?vaga=101040" class="btn-icon-action" title="Visualizar a vaga" aria-label="Visualizar a vaga">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <span class="btn-icon-action btn-icon-action--disabled" role="img" aria-disabled="true" title="Essa vaga está disponível para manifestação de interesse" aria-label="Essa vaga está disponível para manifestação de interesse"><i class="fa-solid fa-user-slash" aria-hidden="true"></i></span>
+                    <a class="btn-icon-action" href="gestao-encaminhamentos.html?vaga=101040" title="Gestão de encaminhamentos" aria-label="Gestão de encaminhamentos">
+                      <i class="fa-solid fa-people-arrows"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Vaga 2 -->
+              <tr>
+                <td>101039</td>
+                <td>19/08/2026</td>
+                <td>Vaga Exclusiva</td>
+                <td style="text-align:center;">3</td>
+                <td><span class="badge badge-aberta">Aberta</span></td>
+                <td>Estágio</td>
+                <td>
+                  <div class="vagas-actions-cell">
+                    <a href="visualizar-vaga.html?vaga=101039" class="btn-icon-action" title="Visualizar a vaga" aria-label="Visualizar a vaga"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="convocacao.html?vaga=101039" class="btn-icon-action" title="Essa vaga está disponível para convocação" aria-label="Essa vaga está disponível para convocação"><i class="fa-solid fa-user"></i></a>
+                    <a class="btn-icon-action" href="gestao-encaminhamentos.html?vaga=101039" title="Gestão de encaminhamentos" aria-label="Gestão de encaminhamentos"><i class="fa-solid fa-people-arrows"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Vaga 3 -->
+              <tr>
+                <td>101002</td>
+                <td>18/08/2026</td>
+                <td>Copeiro de Hospital</td>
+                <td style="text-align:center;">5</td>
+                <td><span class="badge badge-aberta">Aberta</span></td>
+                <td>Permanente</td>
+                <td>
+                  <div class="vagas-actions-cell">
+                    <a href="visualizar-vaga.html?vaga=101002" class="btn-icon-action" title="Visualizar a vaga" aria-label="Visualizar a vaga"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <span class="btn-icon-action btn-icon-action--disabled" role="img" aria-disabled="true" title="Essa vaga está disponível para manifestação de interesse" aria-label="Essa vaga está disponível para manifestação de interesse"><i class="fa-solid fa-user-slash" aria-hidden="true"></i></span>
+                    <a class="btn-icon-action" href="gestao-encaminhamentos.html?vaga=101002" title="Gestão de encaminhamentos" aria-label="Gestão de encaminhamentos"><i class="fa-solid fa-people-arrows"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Vaga 4 -->
+              <tr>
+                <td>101001</td>
+                <td>18/08/2026</td>
+                <td>Copeiro de Hospital</td>
+                <td style="text-align:center;">4</td>
+                <td><span class="badge badge-aberta">Aberta</span></td>
+                <td>Permanente</td>
+                <td>
+                  <div class="vagas-actions-cell">
+                    <a href="visualizar-vaga.html?vaga=101001" class="btn-icon-action" title="Visualizar a vaga" aria-label="Visualizar a vaga"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="convocacao.html?vaga=101001" class="btn-icon-action" title="Essa vaga está disponível para convocação" aria-label="Essa vaga está disponível para convocação"><i class="fa-solid fa-user"></i></a>
+                    <a class="btn-icon-action" href="gestao-encaminhamentos.html?vaga=101001" title="Gestão de encaminhamentos" aria-label="Gestão de encaminhamentos"><i class="fa-solid fa-people-arrows"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Vaga 5 -->
+              <tr>
+                <td>101000</td>
+                <td>18/08/2026</td>
+                <td>Cumim</td>
+                <td style="text-align:center;">3</td>
+                <td><span class="badge badge-aberta">Aberta</span></td>
+                <td>Permanente</td>
+                <td>
+                  <div class="vagas-actions-cell">
+                    <a href="visualizar-vaga.html?vaga=101000" class="btn-icon-action" title="Visualizar a vaga" aria-label="Visualizar a vaga"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <span class="btn-icon-action btn-icon-action--disabled" role="img" aria-disabled="true" title="Essa vaga está disponível para manifestação de interesse" aria-label="Essa vaga está disponível para manifestação de interesse"><i class="fa-solid fa-user-slash" aria-hidden="true"></i></span>
+                    <a class="btn-icon-action" href="gestao-encaminhamentos.html?vaga=101000" title="Gestão de encaminhamentos" aria-label="Gestão de encaminhamentos"><i class="fa-solid fa-people-arrows"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Vaga 6 -->
+              <tr>
+                <td>100999</td>
+                <td>18/08/2026</td>
+                <td>Cumim</td>
+                <td style="text-align:center;">4</td>
+                <td><span class="badge badge-aberta">Aberta</span></td>
+                <td>Permanente</td>
+                <td>
+                  <div class="vagas-actions-cell">
+                    <a href="visualizar-vaga.html?vaga=100999" class="btn-icon-action" title="Visualizar a vaga" aria-label="Visualizar a vaga"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="convocacao.html?vaga=100999" class="btn-icon-action" title="Essa vaga está disponível para convocação" aria-label="Essa vaga está disponível para convocação"><i class="fa-solid fa-user"></i></a>
+                    <a class="btn-icon-action" href="gestao-encaminhamentos.html?vaga=100999" title="Gestão de encaminhamentos" aria-label="Gestão de encaminhamentos"><i class="fa-solid fa-people-arrows"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Vaga 7 -->
+              <tr>
+                <td>100922</td>
+                <td>07/08/2026</td>
+                <td>Analista de Cargos e Salários</td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-prazo">Prazo de validade expirado</span></td>
+                <td>Permanente</td>
+                <td>
+                  <div class="vagas-actions-cell">
+                    <a href="visualizar-vaga.html?vaga=100922" class="btn-icon-action" title="Visualizar a vaga" aria-label="Visualizar a vaga"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <span class="btn-icon-action btn-icon-action--disabled" role="img" aria-disabled="true" title="Essa vaga está disponível para manifestação de interesse" aria-label="Essa vaga está disponível para manifestação de interesse"><i class="fa-solid fa-user-slash" aria-hidden="true"></i></span>
+                    <a class="btn-icon-action" href="gestao-encaminhamentos.html?vaga=100922" title="Gestão de encaminhamentos" aria-label="Gestão de encaminhamentos"><i class="fa-solid fa-people-arrows"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Vaga 8 -->
+              <tr>
+                <td>100920</td>
+                <td>07/08/2026</td>
+                <td>Contador</td>
+                <td style="text-align:center;">1</td>
+                <td><span class="badge badge-aberta">Aberta</span></td>
+                <td>Permanente</td>
+                <td>
+                  <div class="vagas-actions-cell">
+                    <a href="visualizar-vaga.html?vaga=100920" class="btn-icon-action" title="Visualizar a vaga" aria-label="Visualizar a vaga"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="convocacao.html?vaga=100920" class="btn-icon-action" title="Essa vaga está disponível para convocação" aria-label="Essa vaga está disponível para convocação"><i class="fa-solid fa-user"></i></a>
+                    <a class="btn-icon-action" href="gestao-encaminhamentos.html?vaga=100920" title="Gestão de encaminhamentos" aria-label="Gestão de encaminhamentos"><i class="fa-solid fa-people-arrows"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Vaga 9 -->
+              <tr>
+                <td>100522</td>
+                <td>18/05/2026</td>
+                <td>Contador</td>
+                <td style="text-align:center;">2</td>
+                <td><span class="badge badge-sub-periodo">Sub período expirado</span></td>
+                <td>Permanente</td>
+                <td>
+                  <div class="vagas-actions-cell">
+                    <a href="visualizar-vaga.html?vaga=100522" class="btn-icon-action" title="Visualizar a vaga" aria-label="Visualizar a vaga"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <span class="btn-icon-action btn-icon-action--disabled" role="img" aria-disabled="true" title="Essa vaga está disponível para manifestação de interesse" aria-label="Essa vaga está disponível para manifestação de interesse"><i class="fa-solid fa-user-slash" aria-hidden="true"></i></span>
+                    <a class="btn-icon-action" href="gestao-encaminhamentos.html?vaga=100522" title="Gestão de encaminhamentos" aria-label="Gestão de encaminhamentos"><i class="fa-solid fa-people-arrows"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Vaga 10 -->
+              <tr>
+                <td>100319</td>
+                <td>25/03/2026</td>
+                <td>Analista Contábil</td>
+                <td style="text-align:center;">10</td>
+                <td><span class="badge badge-limite">Limite de encaminhamento expirado</span></td>
+                <td>Permanente</td>
+                <td>
+                  <div class="vagas-actions-cell">
+                    <a href="visualizar-vaga.html?vaga=100319" class="btn-icon-action" title="Visualizar a vaga" aria-label="Visualizar a vaga"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="convocacao.html?vaga=100319" class="btn-icon-action" title="Essa vaga está disponível para convocação" aria-label="Essa vaga está disponível para convocação"><i class="fa-solid fa-user"></i></a>
+                    <a class="btn-icon-action" href="gestao-encaminhamentos.html?vaga=100319" title="Gestão de encaminhamentos" aria-label="Gestão de encaminhamentos"><i class="fa-solid fa-people-arrows"></i></a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Paginação numérica -->
+        <div style="padding:var(--space-2) var(--space-4);border-top:1px solid var(--color-gray-2);
+                    display:flex;align-items:center;justify-content:center;gap:var(--space-2);flex-wrap:wrap;">
+          <a class="pag-link" href="#">PRIMEIRA</a>
+          <a class="pag-link" href="#">ANTERIOR</a>
+          <div class="pag-numbers">
+            <a class="pag-num active" href="#">1</a>
+            <a class="pag-num" href="#">2</a>
+            <a class="pag-num" href="#">3</a>
+            <a class="pag-num" href="#">4</a>
+            <a class="pag-num" href="#">5</a>
+            <a class="pag-num" href="#">6</a>
+            <a class="pag-num" href="#">7</a>
+            <a class="pag-num" href="#">8</a>
+            <a class="pag-num" href="#">9</a>
+            <a class="pag-num" href="#">10</a>
+          </div>
+          <a class="pag-link" href="#">PRÓXIMA</a>
+          <a class="pag-link" href="#">ÚLTIMA</a>
+        </div>
+
+      </section>
+
+      <!-- ── Botões de ação ───────────────────────────────── -->
+      <div class="vagas-footer-actions">
+        <button class="govbr-btn govbr-btn-primary" type="button">
+          <i class="fa-solid fa-plus"></i> Cadastrar Vaga
+        </button>
+        <button class="govbr-btn govbr-btn-secondary" type="button" onclick="window.location.href='convocacao.html'">
+          <i class="fa-solid fa-users"></i> Simular Trabalhadores
+        </button>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ══════════ BARRA INFERIOR DE ATENDIMENTO ══════════ -->
+  <footer class="barra-atendimento" role="contentinfo" aria-label="Duração do atendimento">
+    <div class="barra-atendimento-duracao">
+      <i class="fa-regular fa-clock" aria-hidden="true"></i>
+      <span>Duração do atendimento:</span>
+      <strong class="barra-atendimento-tempo">00:25</strong>
+    </div>
+  </footer>
+
+  <!-- ╔══════════ MODAL — Finalizar atendimento ══════════╗ -->
+  <div class="govbr-modal-overlay"
+       id="modal-finalizar-atendimento"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-finalizar-title">
+
+    <div class="govbr-modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-finalizar-title">Finalizar atendimento</h2>
+        <button class="modal-close-btn"
+                data-modal-close="modal-finalizar-atendimento"
+                aria-label="Fechar modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-desc">
+          Deseja realmente finalizar o atendimento ao empregador DIRECAO GERAL BB?
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <!-- "Não": fecha o modal e permanece na página (padrão data-modal-close) -->
+        <button class="govbr-btn govbr-btn-secondary"
+                type="button"
+                data-modal-close="modal-finalizar-atendimento">
+          Não
+        </button>
+        <!-- "Sim": navega para fimAtendimento.html -->
+        <a href="fimAtendimento.html" class="govbr-btn govbr-btn-danger" role="button">
+          Sim
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Filtro simples para o protótipo
+    document.getElementById('btn-filtrar-vagas')?.addEventListener('click', () => {
+      window.showToast && showToast('Filtros aplicados com sucesso.', 'success');
+    });
+  </script>
+</body>
+</html>

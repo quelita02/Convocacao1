@@ -1,0 +1,218 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Adicionar CSS local no bloco `<style>` de `lista-vagas.html`": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742220507
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742236654
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742407364
+      }
+    ],
+    "1.2 Inserir novo `<th>` vazio como primeira coluna do `thead` de `#table-vagas`": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742220727
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742417572
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742484844
+      }
+    ],
+    "1.3 Adicionar o Indicador_De_Status como primeira `<td>` de cada uma das 10 linhas": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742220898
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742493103
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742830471
+      }
+    ],
+    "1.4 Ajustar o tooltip da lupa em cada uma das 10 linhas": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742221037
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742837704
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742941950
+      }
+    ],
+    "1.5 Substituir o boneco de ação pelo ícone de Gestão de encaminhamentos em cada uma das 10 linhas": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742221168
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742950660
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787743079821
+      }
+    ],
+    "2.1 Criar a casca padrão da página": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742221391
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742237897
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742408551
+      }
+    ],
+    "2.2 Adicionar o Accordion 1 — Identificação do empregador": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742221555
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742418877
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742485942
+      }
+    ],
+    "2.3 Adicionar o Accordion 2 — Dados da vaga (rótulo \"Ocultar\")": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742221693
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742494354
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742829161
+      }
+    ],
+    "2.4 Adicionar a tabela \"Encaminhamentos Pendentes de retorno\" (`#table-encaminhamentos`)": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742221826
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742838949
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742943210
+      }
+    ],
+    "2.5 Adicionar o botão \"Salvar XLS\" e o rodapé de ações": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742221973
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742951851
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787743081107
+      }
+    ],
+    "2.6 Implementar o `<script>` inline de comportamento do protótipo": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787742222053
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787743086721
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787743162842
+      }
+    ],
+    "1. Adaptar `lista-vagas.html` (edições sequenciais no mesmo arquivo)": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787743080106
+      }
+    ],
+    "2. Criar `gestao-encaminhamentos.html` (arquivo novo, independente)": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787743163051
+      }
+    ],
+    "3. Checkpoint - Verificar consistência das linhas da Tabela_De_Vagas": [
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787743172031
+      },
+      {
+        "executionId": "2bfca300-d663-4ef7-9f46-82708a918094",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787743243260
+      }
+    ]
+  }
+}

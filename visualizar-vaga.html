@@ -1,0 +1,542 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualizar cadastro da vaga — IMO GOV.BR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Ir para o conteudo principal</a>
+
+  <!-- HEADER -->
+  <header class="govbr-header" role="banner">
+    <div class="header-brand">
+      <button class="header-close-btn" id="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="header-logo" aria-label="Governo Federal">
+        <svg class="govbr-logo-svg" viewBox="0 0 100 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="9,3.5 10.5,8.5 15.5,8.5 11.5,11.5 13,16.5 9,13.5 5,16.5 6.5,11.5 2.5,8.5 7.5,8.5" fill="#FFCD07"/>
+          <text x="18" y="19" fill="#1351b4" font-family="Rawline,sans-serif" font-weight="700" font-size="14" letter-spacing="0.2">gov.br</text>
+        </svg>
+      </div>
+      <div class="header-divider" aria-hidden="true"></div>
+      <div class="header-system-info">
+        <div class="header-system-name">IMO - Intermediação de Mão-de-Obra</div>
+        <div class="header-system-subtitle">Ministério do Trabalho e Emprego</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="header-user">
+        <span>Olá, João</span>
+        <div class="header-avatar" aria-hidden="true">J</div>
+      </div>
+      <button class="header-icon-btn" aria-label="Notificações" aria-haspopup="true">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notification-badge" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- BARRA SUPERIOR DE ATENDIMENTO -->
+  <nav class="barra-atendimento-topo" aria-label="Ações do atendimento">
+    <a href="lista-vagas.html" class="barra-atendimento-item">
+      <i class="fa-solid fa-house" aria-hidden="true"></i>
+      <span>Página inicial do atendimento</span>
+    </a>
+    <button type="button"
+            class="barra-atendimento-item barra-atendimento-item--finalizar"
+            data-modal-target="modal-finalizar-atendimento"
+            aria-haspopup="dialog">
+      <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+      <span>Finalizar o atendimento</span>
+    </button>
+  </nav>
+
+  <div class="app-layout">
+
+    <!-- MENU LATERAL -->
+    <nav class="govbr-sidebar" aria-label="Menu principal">
+      <ul class="sidebar-nav" role="menubar">
+        <li role="none">
+          <a href="#" class="nav-item" role="menuitem">
+            <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+            <span class="nav-label">Página inicial</span>
+          </a>
+        </li>
+        <li class="nav-group" id="nav-group-captacao" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-briefcase"></i></span>
+            <span class="nav-label">Captação de vagas</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Recomendações do EmpregAI</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Gestão de Contatos</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Lembretes</a></li>
+          </ul>
+        </li>
+        <li class="nav-group" id="nav-group-empregador" role="none">
+          <div class="nav-group-header open" role="menuitem" aria-haspopup="true" aria-expanded="true" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-building"></i></span>
+            <span class="nav-label">Empregador</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children expanded" role="menu">
+            <li role="none"><a href="lista-vagas.html" class="nav-subitem" role="menuitem">Novo atendimento</a></li>
+          </ul>
+        </li>
+        <li class="nav-divider" role="separator"></li>
+        <li class="nav-group" id="nav-group-gerencial" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-chart-bar"></i></span>
+            <span class="nav-label">Gerencial</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Cadastrar agente zoneador</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Cadastrar áreas de atuação</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Alterar áreas de atuação</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Igualdade Salarial</a></li>
+          </ul>
+        </li>
+        <li class="nav-group" id="nav-group-operacional" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-gears"></i></span>
+            <span class="nav-label">Operacional</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Operações com NIT</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Disponibilidade do Sistema</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Parâmetros do sistema</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Informativo</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Instituições de ensino</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Postos de atendimento</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- CONTEUDO PRINCIPAL -->
+    <main class="main-content" id="main-content" role="main">
+
+      <div class="page-header">
+        <a href="lista-vagas.html" class="page-back-btn" aria-label="Voltar à lista de vagas">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <h1 class="page-title">Visualizar cadastro da vaga</h1>
+      </div>
+
+      <!-- QUADRO 1: Identificação do empregador que oferece a vaga -->
+      <section class="detail-section-card">
+        <div class="detail-section-head">
+          <span class="detail-section-icon"><i class="fa-solid fa-building"></i></span>
+          <h2 class="detail-section-title">Identificação do empregador que oferece a vaga</h2>
+        </div>
+        <div class="details-grid">
+          <div class="detail-field"><span class="detail-label">Tipo da identificação</span><span class="detail-value">CNPJ</span></div>
+          <div class="detail-field"><span class="detail-label">Número de identificação</span><span class="detail-value">00.000.000/0001-91</span></div>
+          <div class="detail-field"><span class="detail-label">Nome de Fantasia</span><span class="detail-value">DIRECAO GERAL BB</span></div>
+          <div class="detail-field"><span class="detail-label">Contato</span><span class="detail-value">alice alves farias</span></div>
+          <div class="detail-field"><span class="detail-label">Telefone</span><span class="detail-value">(83) 76473-4637</span></div>
+        </div>
+      </section>
+
+      <!-- QUADRO 2: Dados da vaga -->
+      <section class="detail-section-card">
+        <div class="detail-section-head">
+          <span class="detail-section-icon"><i class="fa-solid fa-briefcase"></i></span>
+          <h2 class="detail-section-title">Dados da vaga</h2>
+        </div>
+        <div class="details-grid">
+          <div class="detail-field"><span class="detail-label">Número de identificação</span><span class="detail-value">101160</span></div>
+          <div class="detail-field"><span class="detail-label">Cargo</span><span class="detail-value">Reabilitados?</span></div>
+          <div class="detail-field"><span class="detail-label">Ocupação</span><span class="detail-value">5134-15 - Cumim</span></div>
+          <div class="detail-field"><span class="detail-label">Data de cadastro</span><span class="detail-value">21/08/2026</span></div>
+          <div class="detail-field"><span class="detail-label">Contratação</span><span class="detail-value">Permanente</span></div>
+          <div class="detail-field"><span class="detail-label">Situação</span><span class="detail-value">Em andamento</span></div>
+          <div class="detail-field"><span class="detail-label">Status da vaga</span><span class="detail-value">Aberta</span></div>
+          <div class="detail-field"><span class="detail-label">Direcionamento</span><span class="detail-value">Indiferente</span></div>
+          <div class="detail-field"><span class="detail-label">A contratação ocorrerá pra outro CNPJ/CEI?</span><span class="detail-value">NAO</span></div>
+          <div class="detail-field"><span class="detail-label">Tipo de intermediação</span><span class="detail-value">Por manifestação de interesse</span></div>
+          <div class="detail-field"><span class="detail-label">Pré-seleção</span><span class="detail-value">NAO</span></div>
+          <div class="detail-field"><span class="detail-label">Agenda de encaminhamento</span><span class="detail-value">31/08/2026</span></div>
+          <div class="detail-field"><span class="detail-label">Vagas oferecidas</span><span class="detail-value">20</span></div>
+          <div class="detail-field"><span class="detail-label">Vagas canceladas</span><span class="detail-value">0</span></div>
+          <div class="detail-field"><span class="detail-label">Modelo de entrevista</span><span class="detail-value">Entrevista Online</span></div>
+          <div class="detail-field"><span class="detail-label">Posto Gestão - Código</span><span class="detail-value">2543003-3</span></div>
+          <div class="detail-field"><span class="detail-label">Posto</span><span class="detail-value">PREF MUNICIPAL DE CAMPINA GRANDE/PB</span></div>
+        </div>
+      </section>
+
+      <!-- ABAS -->
+      <nav class="govbr-tabs" role="tablist" aria-label="Detalhes da vaga">
+        <button class="govbr-tab-btn active" type="button" role="tab" id="tab-btn-perfil" aria-controls="tab-perfil" aria-selected="true">Perfil da Vaga</button>
+        <button class="govbr-tab-btn" type="button" role="tab" id="tab-btn-administracao" aria-controls="tab-administracao" aria-selected="false">Administração</button>
+        <button class="govbr-tab-btn" type="button" role="tab" id="tab-btn-monitoramento" aria-controls="tab-monitoramento" aria-selected="false">Monitoramento</button>
+        <button class="govbr-tab-btn" type="button" role="tab" id="tab-btn-acoes" aria-controls="tab-acoes" aria-selected="false">Ações</button>
+      </nav>
+
+      <!-- PAINEL: PERFIL DA VAGA -->
+      <div class="govbr-tab-panel active" id="tab-perfil" role="tabpanel" aria-labelledby="tab-btn-perfil">
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-briefcase"></i></span><h3 class="detail-section-title">Cargo</h3></div>
+          <div class="details-grid-2col">
+            <div class="detail-field"><span class="detail-label">Nome usual da ocupação</span><span class="detail-value">Reabilitados?</span></div>
+            <div class="detail-field"><span class="detail-label">Descrição</span><span class="detail-value">Testes</span></div>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-user-tag"></i></span><h3 class="detail-section-title">Ocupação</h3></div>
+          <div class="details-grid-2col">
+            <div class="detail-field"><span class="detail-label">CBO</span><span class="detail-value">5134-15</span></div>
+            <div class="detail-field"><span class="detail-label">Ocupação</span><span class="detail-value">Cumim</span></div>
+            <div class="detail-field"><span class="detail-label">Observações</span><span class="detail-value">Nao informado</span></div>
+          </div>
+          <div class="detail-field" style="margin-top:var(--spacing-scale-2);">
+            <span class="detail-label">Descrição</span>
+            <p class="detail-longtext">Atendem os clientes, servem alimentos e bebidas em restaurantes, bares, cafeterias, hotéis, hospitais, eventos, etc. Manipulam alimentos e preparam sucos, drinks e cafés. Realizam serviços de vinho e de café.</p>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-clipboard-check"></i></span><h3 class="detail-section-title">Requisitos da vaga</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Experiência profissional exigida (em meses)</span><span class="detail-value">Nenhum</span></div>
+            <div class="detail-field"><span class="detail-label">Comprovada em CTPS?</span><span class="detail-value">Nao</span></div>
+            <div class="detail-field"><span class="detail-label">Escolaridade</span><span class="detail-value">Nao exigida</span></div>
+            <div class="detail-field"><span class="detail-label">Há impeditivos para encaminhamento de pessoa com deficiência?</span><span class="detail-value">Nao</span></div>
+            <div class="detail-field"><span class="detail-label">A vaga é exclusiva para trabalhadores com deficiência?</span><span class="detail-value">Sim</span></div>
+          </div>
+          <div class="detail-field" style="margin-top:var(--spacing-scale-2);">
+            <span class="detail-label">Deficiências aceitas para a vaga</span>
+            <div class="detail-chips" role="list" aria-label="Deficiências aceitas para a vaga">
+              <span class="detail-chip" role="listitem">Membros inferiores</span>
+              <span class="detail-chip" role="listitem">Amputação</span>
+              <span class="detail-chip" role="listitem">Mental / Intelectual</span>
+              <span class="detail-chip" role="listitem">Um membro inferior</span>
+              <span class="detail-chip" role="listitem">Baixa visão</span>
+              <span class="detail-chip" role="listitem">Cadeirante</span>
+              <span class="detail-chip" role="listitem">Surdez bilateral parcial</span>
+            </div>
+          </div>
+          <div class="details-grid" style="margin-top:var(--spacing-scale-2);">
+            <div class="detail-field"><span class="detail-label">Trabalhador deve possuir habilitação?</span><span class="detail-value">Nao</span></div>
+            <div class="detail-field"><span class="detail-label">Tempo de habilitação (em meses)</span><span class="detail-value">0</span></div>
+            <div class="detail-field"><span class="detail-label">Trabalhador deve disponibilizar veículo para o trabalho?</span><span class="detail-value">Nao</span></div>
+            <div class="detail-field"><span class="detail-label">Trabalhador deve ter disponibilidade para realizar viagens?</span><span class="detail-value">Nao</span></div>
+            <div class="detail-field"><span class="detail-label">Trabalhador deve ter disponibilidade para dormir no local de trabalho?</span><span class="detail-value">Nao</span></div>
+            <div class="detail-field"><span class="detail-label">Trabalhador deve ter disponibilidade para ausentar-se do domicílio por longo período?</span><span class="detail-value">Nao</span></div>
+            <div class="detail-field"><span class="detail-label">Complexidade da colocação</span><span class="detail-value">Normal</span></div>
+            <div class="detail-field"><span class="detail-label">Houve parâmetros flexibilizados?</span><span class="detail-value">Nao</span></div>
+            <div class="detail-field"><span class="detail-label">Observações gerais</span><span class="detail-value">Nao informado</span></div>
+            <div class="detail-field"><span class="detail-label">Exigência de pré-seleção no SINE?</span><span class="detail-value">Nao</span></div>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-money-bill-wave"></i></span><h3 class="detail-section-title">Informações financeiras</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Salário oferecido</span><span class="detail-value">Salário não informado</span></div>
+            <div class="detail-field"><span class="detail-label">Periodicidade do pagamento</span><span class="detail-value">Mês</span></div>
+            <div class="detail-field"><span class="detail-label">Incentivos</span><span class="detail-value">Condução/Vale-transporte, Cesta básica</span></div>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-location-dot"></i></span><h3 class="detail-section-title">Horário e local de trabalho</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Horário de trabalho</span><span class="detail-value">Comercial</span></div>
+            <div class="detail-field"><span class="detail-label">Logradouro</span><span class="detail-value">R. Antônio Amílcar de Almeida - de 1 a 99998</span></div>
+            <div class="detail-field"><span class="detail-label">Número</span><span class="detail-value">52</span></div>
+            <div class="detail-field"><span class="detail-label">Bairro</span><span class="detail-value">Santa Rosa</span></div>
+            <div class="detail-field"><span class="detail-label">Município</span><span class="detail-value">Campina Grande</span></div>
+            <div class="detail-field"><span class="detail-label">Complemento/Zona geográfica</span><span class="detail-value">Nao informado</span></div>
+            <div class="detail-field"><span class="detail-label">UF</span><span class="detail-value">PB</span></div>
+            <div class="detail-field"><span class="detail-label">CEP</span><span class="detail-value">58416-617</span></div>
+            <div class="detail-field"><span class="detail-label">Referência de acesso</span><span class="detail-value">Nao informado</span></div>
+            <div class="detail-field"><span class="detail-label">Observação</span><span class="detail-value">-</span></div>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-map-location-dot"></i></span><h3 class="detail-section-title">Municípios de alcance</h3></div>
+          <div class="govbr-table-wrapper">
+            <table class="govbr-table" aria-label="Municípios de alcance da vaga">
+              <thead><tr><th scope="col">Estado</th><th scope="col">Município</th></tr></thead>
+              <tbody>
+                <tr><td>Paraíba</td><td>Campina Grande</td></tr>
+                <tr><td>Pará</td><td>Jacareacanga</td></tr>
+                <tr><td>Pará</td><td>Santa Bárbara do Pará</td></tr>
+                <tr><td>Piauí</td><td>Bertolínia</td></tr>
+                <tr><td>Piauí</td><td>Francinópolis</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-circle-info"></i></span><h3 class="detail-section-title">Informações adicionais</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Iniciativa</span><span class="detail-value">Empregador</span></div>
+            <div class="detail-field"><span class="detail-label">Forma de contato</span><span class="detail-value">Acesso via web</span></div>
+            <div class="detail-field"><span class="detail-label">Direcionamento</span><span class="detail-value">Indiferente</span></div>
+            <div class="detail-field"><span class="detail-label">Situação</span><span class="detail-value">Em andamento</span></div>
+            <div class="detail-field"><span class="detail-label">Status</span><span class="detail-value">Aberta</span></div>
+            <div class="detail-field"><span class="detail-label">Vagas oferecidas</span><span class="detail-value">20</span></div>
+            <div class="detail-field"><span class="detail-label">Reposição</span><span class="detail-value">20</span></div>
+            <div class="detail-field"><span class="detail-label">Aumento de quadro</span><span class="detail-value">0</span></div>
+            <div class="detail-field"><span class="detail-label">Vagas canceladas</span><span class="detail-value">0</span></div>
+          </div>
+        </section>
+
+        <section class="detail-section-card detail-section-card--skills">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-star"></i></span><h3 class="detail-section-title">Habilidades pessoais (Soft Skills)</h3></div>
+          <span class="detail-label" style="display:block;margin-bottom:var(--spacing-scale-1);">Descrição</span>
+          <div class="soft-skills-list">
+            <span class="skill-tag">Proativo</span>
+            <span class="skill-tag">Pontual</span>
+          </div>
+          <div id="soft-skills-extra" class="soft-skills-list" style="display:none; margin-top:6px;">
+            <span class="skill-tag">Comunicativo</span>
+            <span class="skill-tag">Trabalho em equipe</span>
+            <span class="skill-tag">Organizado</span>
+          </div>
+          <a href="#" class="link-ver-mais" id="btn-ver-mais" style="margin-top:var(--spacing-scale-1);display:inline-block;">Ver mais</a>
+        </section>
+
+      </div><!-- /tab-perfil -->
+
+      <!-- PAINEL: ADMINISTRACAO -->
+      <div class="govbr-tab-panel" id="tab-administracao" role="tabpanel" aria-labelledby="tab-btn-administracao">
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-people-arrows"></i></span><h3 class="detail-section-title">Gerência de Encaminhamentos</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Encaminhamentos requisitados</span><span class="detail-value">20</span></div>
+            <div class="detail-field"><span class="detail-label">Período de encaminhamento - Data inicial</span><span class="detail-value">31/08/2026</span></div>
+            <div class="detail-field"><span class="detail-label">Período de encaminhamento - Data final</span><span class="detail-value">31/08/2026</span></div>
+            <div class="detail-field"><span class="detail-label">Data prevista para retorno do encaminhamento</span><span class="detail-value">04/09/2026</span></div>
+            <div class="detail-field"><span class="detail-label">Total realizados</span><span class="detail-value">0</span></div>
+            <div class="detail-field"><span class="detail-label">Total disponíveis</span><span class="detail-value">20</span></div>
+          </div>
+          <span class="detail-label" style="display:block;margin:var(--spacing-scale-2) 0 var(--spacing-scale-1);">Agenda de encaminhamentos</span>
+          <div class="govbr-table-wrapper">
+            <table class="govbr-table" aria-label="Agenda de encaminhamentos">
+              <thead><tr><th scope="col">Status</th><th scope="col">Data</th><th scope="col">Horário</th><th scope="col" style="text-align:center;">Programados</th><th scope="col" style="text-align:center;">Realizados</th><th scope="col" style="text-align:center;">Reutilizáveis</th></tr></thead>
+              <tbody>
+                <tr><td><span class="badge badge-info">Programado</span></td><td>31/08/2026</td><td>08:00</td><td style="text-align:center;">20</td><td style="text-align:center;">0</td><td style="text-align:center;">-</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="details-grid-2col" style="margin-top:var(--spacing-scale-2);">
+            <div class="detail-field"><span class="detail-label">A agendar</span><span class="detail-value">0</span></div>
+            <div class="detail-field"><span class="detail-label">Expirados não utilizados</span><span class="detail-value">0</span></div>
+          </div>
+          <span class="detail-label" style="display:block;margin:var(--spacing-scale-3) 0 var(--spacing-scale-1);">Outras ações</span>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;">
+            <button class="govbr-btn govbr-btn-secondary" type="button" data-acao="informar-retorno"><i class="fa-solid fa-reply"></i> Informar retorno</button>
+            <button class="govbr-btn govbr-btn-secondary" type="button" data-acao="alterar-retorno"><i class="fa-solid fa-pen"></i> Alterar retorno</button>
+            <button class="govbr-btn govbr-btn-secondary" type="button" data-acao="anexar-comprovante"><i class="fa-solid fa-paperclip"></i> Anexar comprovante</button>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-comments"></i></span><h3 class="detail-section-title">Entrevista</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Contato para a entrevista</span><span class="detail-value">Edite Medeiros Maciel</span></div>
+            <div class="detail-field"><span class="detail-label">Número de contato para marcar entrevista online - DDD</span><span class="detail-value">83</span></div>
+            <div class="detail-field"><span class="detail-label">Número</span><span class="detail-value">98189-2313</span></div>
+            <div class="detail-field"><span class="detail-label">Observações</span><span class="detail-value">Não Informado</span></div>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-headset"></i></span><h3 class="detail-section-title">Atendimento</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Posto de atendimento - Código</span><span class="detail-value">5311002-1</span></div>
+            <div class="detail-field"><span class="detail-label">Posto</span><span class="detail-value">POSTO IMO WEB</span></div>
+            <div class="detail-field"><span class="detail-label">Funcionário responsável pelo cadastro/validação - Matrícula</span><span class="detail-value">53110422-2</span></div>
+            <div class="detail-field"><span class="detail-label">Nome</span><span class="detail-value">AGENTE EMPREGABR</span></div>
+            <div class="detail-field"><span class="detail-label">Posto de gestão - Código</span><span class="detail-value">2543003-3</span></div>
+            <div class="detail-field"><span class="detail-label">Posto</span><span class="detail-value">PREF MUNICIPAL DE CAMPINA GRANDE/PB</span></div>
+          </div>
+        </section>
+
+        <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-3);">
+          <button class="govbr-btn govbr-btn-secondary" type="button" data-acao="transferir-administracao"><i class="fa-solid fa-right-left"></i> Transferir Administração</button>
+          <button class="govbr-btn govbr-btn-secondary" type="button" data-acao="cancelar-vaga" style="color:var(--color-danger);border-color:var(--color-danger);"><i class="fa-solid fa-ban"></i> Cancelar Vaga</button>
+          <button class="govbr-btn govbr-btn-secondary" type="button" data-acao="suspender-vaga"><i class="fa-solid fa-pause"></i> Suspender Vaga</button>
+          <button class="govbr-btn govbr-btn-primary" type="button" data-acao="verificar-trabalhadores"><i class="fa-solid fa-users"></i> Verificar trabalhadores para a Vaga</button>
+        </div>
+
+      </div><!-- /tab-administracao -->
+
+      <!-- PAINEL: MONITORAMENTO -->
+      <div class="govbr-tab-panel" id="tab-monitoramento" role="tabpanel" aria-labelledby="tab-btn-monitoramento">
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-chart-simple"></i></span><h3 class="detail-section-title">Consolidação das informações</h3></div>
+          <div class="govbr-table-wrapper">
+            <table class="govbr-table" aria-label="Consolidação das informações">
+              <thead><tr><th scope="col" style="text-align:center;">Quantidade de envios de currículo</th><th scope="col" style="text-align:center;">Quantidade de currículos analisados pelo empregador</th><th scope="col" style="text-align:center;">Quantidade de convocações</th><th scope="col" style="text-align:center;">Quantidade de encaminhados</th><th scope="col" style="text-align:center;">Quantidade de colocações</th></tr></thead>
+              <tbody><tr><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-file-lines"></i></span><h3 class="detail-section-title">Trabalhadores que enviaram currículo</h3></div>
+          <div class="govbr-table-wrapper">
+            <table class="govbr-table" aria-label="Trabalhadores que enviaram currículo">
+              <thead><tr><th scope="col">PIS/PASEP/NIS/NIT</th><th scope="col">Nome</th><th scope="col">Data do envio do currículo</th></tr></thead>
+              <tbody><tr><td colspan="3" style="text-align:center;color:var(--color-text-secondary);">NÃO HÁ TRABALHADORES</td></tr></tbody>
+            </table>
+          </div>
+          <span class="detail-label" style="display:block;margin-top:var(--spacing-scale-1);">Total: 0</span>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></span><h3 class="detail-section-title">Trabalhadores com currículos analisados pelo empregador</h3></div>
+          <div class="govbr-table-wrapper">
+            <table class="govbr-table" aria-label="Trabalhadores com currículos analisados pelo empregador">
+              <thead><tr><th scope="col">PIS/PASEP/NIS/NIT</th><th scope="col">Nome</th><th scope="col">Data da Análise</th><th scope="col">Status</th><th scope="col">Marcou Entrevista?</th><th scope="col">Motivo da Rejeição</th></tr></thead>
+              <tbody><tr><td colspan="6" style="text-align:center;color:var(--color-text-secondary);">NÃO HÁ TRABALHADORES</td></tr></tbody>
+            </table>
+          </div>
+          <span class="detail-label" style="display:block;margin-top:var(--spacing-scale-1);">Total: 0</span>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-comment-dots"></i></span><h3 class="detail-section-title">Trabalhadores que mantiveram contato via CHAT com o empregador</h3></div>
+          <div class="govbr-table-wrapper">
+            <table class="govbr-table" aria-label="Trabalhadores que mantiveram contato via CHAT com o empregador">
+              <thead><tr><th scope="col">PIS/PASEP/NIS/NIT</th><th scope="col">Nome</th><th scope="col">Data do início do contato</th></tr></thead>
+              <tbody><tr><td colspan="3" style="text-align:center;color:var(--color-text-secondary);">NÃO HÁ TRABALHADORES</td></tr></tbody>
+            </table>
+          </div>
+          <span class="detail-label" style="display:block;margin-top:var(--spacing-scale-1);">Total: 0</span>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-bullhorn"></i></span><h3 class="detail-section-title">Trabalhadores convocados</h3></div>
+          <div class="govbr-table-wrapper">
+            <table class="govbr-table" aria-label="Trabalhadores convocados">
+              <thead><tr><th scope="col">PIS/PASEP/NIS/NIT</th><th scope="col">Nome</th><th scope="col">Data da Convocação</th><th scope="col">Prazo de aceite da convocação</th><th scope="col">Status da convocação</th><th scope="col">Marcou Entrevista?</th><th scope="col">Motivo da Recusa</th></tr></thead>
+              <tbody><tr><td colspan="7" style="text-align:center;color:var(--color-text-secondary);">NÃO HÁ TRABALHADORES</td></tr></tbody>
+            </table>
+          </div>
+          <span class="detail-label" style="display:block;margin-top:var(--spacing-scale-1);">Total: 0</span>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-paper-plane"></i></span><h3 class="detail-section-title">Trabalhadores encaminhados para empregador</h3></div>
+          <div class="govbr-table-wrapper">
+            <table class="govbr-table" aria-label="Trabalhadores encaminhados para empregador">
+              <thead><tr><th scope="col">PIS/PASEP/NIS/NIT</th><th scope="col">Nome</th><th scope="col">Data do encaminhamento</th><th scope="col">Retorno</th><th scope="col">Confirmação</th><th scope="col">Comprovante</th></tr></thead>
+              <tbody><tr><td colspan="6" style="text-align:center;color:var(--color-text-secondary);">NÃO HÁ TRABALHADORES</td></tr></tbody>
+            </table>
+          </div>
+          <span class="detail-label" style="display:block;margin-top:var(--spacing-scale-1);">Total: 0</span>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-circle-info"></i></span><h3 class="detail-section-title">Outras informações</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Total de convocações que ainda podem ser realizadas</span><span class="detail-value">20</span></div>
+            <div class="detail-field"><span class="detail-label">Prazo final para retorno de encaminhamentos</span><span class="detail-value">31/08/2026</span></div>
+            <div class="detail-field"><span class="detail-label">Responsável pelo contato junto ao SINE</span><span class="detail-value">alice alves farias</span></div>
+            <div class="detail-field"><span class="detail-label">Telefone do responsável pelo contato junto ao SINE</span><span class="detail-value">(83) 76473-4637</span></div>
+            <div class="detail-field"><span class="detail-label">Posto responsável pela administração</span><span class="detail-value">PREF MUNICIPAL DE CAMPINA GRANDE/PB</span></div>
+          </div>
+        </section>
+
+      </div><!-- /tab-monitoramento -->
+
+      <!-- PAINEL: ACOES -->
+      <div class="govbr-tab-panel" id="tab-acoes" role="tabpanel" aria-labelledby="tab-btn-acoes">
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-list-check"></i></span><h3 class="detail-section-title">Ações</h3></div>
+          <div class="govbr-table-wrapper">
+            <table class="govbr-table" aria-label="Ações da vaga">
+              <thead><tr><th scope="col">Ação</th><th scope="col">Data</th><th scope="col">Posto</th><th scope="col">Atendente</th></tr></thead>
+              <tbody>
+                <tr><td colspan="4" style="color:var(--color-text-secondary);">Empregador cadastrado no posto 5311002-1 em 21/08/2026</td></tr>
+                <tr><td>Cadastrar Vaga</td><td>21/08/2026</td><td>5311002-1</td><td>53110422-2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-circle-info"></i></span><h3 class="detail-section-title">Detalhe da ação</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Nº da ação</span><span class="detail-value">74644207</span></div>
+            <div class="detail-field"><span class="detail-label">Ação</span><span class="detail-value">Cadastrar Vaga</span></div>
+            <div class="detail-field"><span class="detail-label">Data e hora</span><span class="detail-value">21/08/2026 11:28:24</span></div>
+            <div class="detail-field"><span class="detail-label">Origem</span><span class="detail-value">PORTAL_EMPREGA_BRASIL</span></div>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-location-dot"></i></span><h3 class="detail-section-title">Posto</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Tipo</span><span class="detail-value">MTE</span></div>
+            <div class="detail-field"><span class="detail-label">Código</span><span class="detail-value">5311002-1</span></div>
+            <div class="detail-field"><span class="detail-label">Nome</span><span class="detail-value">POSTO IMO WEB</span></div>
+            <div class="detail-field"><span class="detail-label">Endereço</span><span class="detail-value">AV PRESIDENTE GETULIO VARGAS</span></div>
+          </div>
+        </section>
+
+        <section class="detail-section-card">
+          <div class="detail-section-head"><span class="detail-section-icon"><i class="fa-solid fa-user-gear"></i></span><h3 class="detail-section-title">Agente executor</h3></div>
+          <div class="details-grid">
+            <div class="detail-field"><span class="detail-label">Código</span><span class="detail-value">53110422-2</span></div>
+            <div class="detail-field"><span class="detail-label">Nome</span><span class="detail-value">AGENTE EMPREGABR</span></div>
+          </div>
+        </section>
+
+      </div><!-- /tab-acoes -->
+
+    </main>
+  </div>
+
+  <!-- BARRA INFERIOR DE ATENDIMENTO -->
+  <footer class="barra-atendimento" role="contentinfo" aria-label="Duração do atendimento">
+    <div class="barra-atendimento-duracao">
+      <i class="fa-regular fa-clock" aria-hidden="true"></i>
+      <span>Duração do atendimento:</span>
+      <strong class="barra-atendimento-tempo">00:25</strong>
+    </div>
+  </footer>
+
+  <!-- MODAL - Finalizar atendimento -->
+  <div class="govbr-modal-overlay" id="modal-finalizar-atendimento" role="dialog" aria-modal="true" aria-labelledby="modal-finalizar-title">
+    <div class="govbr-modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-finalizar-title">Finalizar atendimento</h2>
+        <button class="modal-close-btn" data-modal-close="modal-finalizar-atendimento" aria-label="Fechar modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">Deseja realmente finalizar o atendimento ao empregador DIRECAO GERAL BB?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="govbr-btn govbr-btn-secondary" type="button" data-modal-close="modal-finalizar-atendimento">Não</button>
+        <a href="fimAtendimento.html" class="govbr-btn govbr-btn-danger" role="button">Sim</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

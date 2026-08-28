@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro do Trabalhador — IMO GOV.BR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="govbr-header" role="banner">
+    <div class="header-brand">
+      <button class="header-close-btn" id="mobile-menu-toggle" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="header-logo">
+        <svg class="govbr-logo-svg" viewBox="0 0 100 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="9,3.5 10.5,8.5 15.5,8.5 11.5,11.5 13,16.5 9,13.5 5,16.5 6.5,11.5 2.5,8.5 7.5,8.5" fill="#FFCD07"/>
+          <text x="18" y="19" fill="#1351b4" font-family="Rawline,sans-serif" font-weight="700" font-size="14" letter-spacing="0.2">gov.br</text>
+        </svg>
+      </div>
+      <div class="header-divider" aria-hidden="true"></div>
+      <div class="header-system-info">
+        <div class="header-system-name">IMO – Intermediação de Mão-de-Obra</div>
+        <div class="header-system-subtitle">Ministério do Trabalho e Emprego</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="header-user">
+        <span>Olá, João</span>
+        <div class="header-avatar" aria-hidden="true">J</div>
+      </div>
+      <button class="header-icon-btn" aria-label="Notificações">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notification-badge" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- ══════════ BARRA SUPERIOR DE ATENDIMENTO ══════════ -->
+  <nav class="barra-atendimento-topo" aria-label="Ações do atendimento">
+    <a href="lista-vagas.html" class="barra-atendimento-item">
+      <i class="fa-solid fa-house" aria-hidden="true"></i>
+      <span>Página inicial do atendimento</span>
+    </a>
+
+    <button type="button"
+            class="barra-atendimento-item barra-atendimento-item--finalizar"
+            data-modal-target="modal-finalizar-atendimento"
+            aria-haspopup="dialog">
+      <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+      <span>Finalizar o atendimento</span>
+    </button>
+  </nav>
+
+  <div class="app-layout">
+
+    <!-- ══════════ MENU LATERAL ══════════ -->
+    <nav class="govbr-sidebar" aria-label="Menu principal">
+      <ul class="sidebar-nav" role="menubar">
+
+        <!-- Página inicial -->
+        <li role="none">
+          <a href="#" class="nav-item" role="menuitem">
+            <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+            <span class="nav-label">Página inicial</span>
+          </a>
+        </li>
+
+        <!-- Captação de vagas -->
+        <li class="nav-group" id="nav-group-captacao" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-briefcase"></i></span>
+            <span class="nav-label">Captação de vagas</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Recomendações do EmpregAI</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Gestão de Contatos</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Lembretes</a></li>
+          </ul>
+        </li>
+
+        <!-- Empregador -->
+        <li class="nav-group" id="nav-group-empregador" role="none">
+          <div class="nav-group-header open" role="menuitem" aria-haspopup="true" aria-expanded="true" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-building"></i></span>
+            <span class="nav-label">Empregador</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children expanded" role="menu">
+            <li role="none"><a href="lista-vagas.html" class="nav-subitem" role="menuitem">Novo atendimento</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-divider" role="separator"></li>
+
+        <!-- Gerencial -->
+        <li class="nav-group" id="nav-group-gerencial" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-chart-bar"></i></span>
+            <span class="nav-label">Gerencial</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Cadastrar agente zoneador</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Cadastrar áreas de atuação</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Alterar áreas de atuação</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Igualdade Salarial</a></li>
+          </ul>
+        </li>
+
+        <!-- Operacional -->
+        <li class="nav-group" id="nav-group-operacional" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-gears"></i></span>
+            <span class="nav-label">Operacional</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Operações com NIT</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Disponibilidade do Sistema</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Parâmetros do sistema</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Informativo</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Instituições de ensino</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Postos de atendimento</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- ══════════ CONTEÚDO ══════════ -->
+    <main class="main-content" id="main-content" role="main">
+
+      <!-- Breadcrumb -->
+      <nav class="govbr-breadcrumb" aria-label="Trilha de navegação">
+        <a href="visualizar-vaga.html">Informações da vaga</a>
+        <span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+        <span class="breadcrumb-current">Cadastro do trabalhador</span>
+      </nav>
+
+      <!-- Page header -->
+      <div class="page-header">
+        <a href="visualizar-vaga.html" class="page-back-btn" aria-label="Voltar">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <h1 class="page-title">Cadastro do trabalhador</h1>
+      </div>
+
+      <!-- ── Ficha de identificação ─────────────────────────── -->
+      <div class="worker-profile-card">
+
+        <div class="worker-avatar-wrap">
+          <div class="worker-avatar-lg" id="worker-initials" aria-hidden="true">F</div>
+        </div>
+
+        <div class="worker-profile-info">
+          <div class="worker-field">
+            <span class="worker-label">Nome completo</span>
+            <span class="worker-value" id="worker-nome">Florentina das Neves Menezes de Aragão</span>
+          </div>
+          <div class="worker-field">
+            <span class="worker-label">NIT / PIS / PASEP</span>
+            <span class="worker-value" id="worker-nit">444.4444.44-4</span>
+          </div>
+          <div class="worker-field">
+            <span class="worker-label">Data de nascimento</span>
+            <span class="worker-value">12/03/1988</span>
+          </div>
+          <div class="worker-field">
+            <span class="worker-label">Nome social</span>
+            <span class="worker-value">—</span>
+          </div>
+          <div class="worker-field">
+            <span class="worker-label">Raça / Cor</span>
+            <span class="worker-value">Parda</span>
+          </div>
+          <div class="worker-field">
+            <span class="worker-label">Nacionalidade</span>
+            <span class="worker-value">Brasileira</span>
+          </div>
+          <div class="worker-field">
+            <span class="worker-label">Estado civil</span>
+            <span class="worker-value">Solteira</span>
+          </div>
+          <div class="worker-field">
+            <span class="worker-label">Possui deficiência?</span>
+            <span class="worker-value">Não</span>
+          </div>
+          <div class="worker-field">
+            <span class="worker-label">Nome da mãe</span>
+            <span class="worker-value">Maria das Neves de Aragão</span>
+          </div>
+          <div class="worker-field" style="grid-column:1/-1;">
+            <span class="worker-label">Nome do pai</span>
+            <span class="worker-value">José Menezes de Aragão</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Tabs ────────────────────────────────────────────── -->
+      <div class="govbr-card" style="margin-bottom:var(--spacing-scale-3);overflow:visible;">
+        <div style="padding:0 var(--spacing-scale-4);">
+
+          <!-- Barra de tabs -->
+          <nav class="govbr-tabs" role="tablist" aria-label="Seções do cadastro">
+            <button class="govbr-tab-btn active"
+                    role="tab"
+                    id="tab-dados-gerais"
+                    aria-selected="true"
+                    aria-controls="panel-dados-gerais">
+              <i class="fa-solid fa-id-card" style="margin-right:5px;"></i>Dados Gerais
+            </button>
+            <button class="govbr-tab-btn"
+                    role="tab"
+                    id="tab-formacao"
+                    aria-selected="false"
+                    aria-controls="panel-formacao">
+              <i class="fa-solid fa-graduation-cap" style="margin-right:5px;"></i>Formação Acadêmica
+            </button>
+            <button class="govbr-tab-btn"
+                    role="tab"
+                    id="tab-experiencia"
+                    aria-selected="false"
+                    aria-controls="panel-experiencia">
+              <i class="fa-solid fa-briefcase" style="margin-right:5px;"></i>Experiência Profissional
+            </button>
+            <button class="govbr-tab-btn"
+                    role="tab"
+                    id="tab-pretensoes"
+                    aria-selected="false"
+                    aria-controls="panel-pretensoes">
+              <i class="fa-solid fa-bullseye" style="margin-right:5px;"></i>Pretensões Profissionais
+            </button>
+          </nav>
+
+          <!-- ╔═════════════════════════════════════════╗
+               ║  TAB 1 — DADOS GERAIS                   ║
+               ╚═════════════════════════════════════════╝ -->
+          <div class="govbr-tab-panel active"
+               id="panel-dados-gerais"
+               role="tabpanel"
+               aria-labelledby="tab-dados-gerais"
+               style="padding:var(--spacing-scale-3) 0 var(--spacing-scale-3);">
+
+            <!-- CTPS e Documentos -->
+            <div class="tab-section-title">Documentos</div>
+            <div class="tab-fields-grid">
+              <div class="worker-field">
+                <span class="worker-label">Número da CTPS</span>
+                <span class="worker-value">0123456</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Série</span>
+                <span class="worker-value">00123-PB</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">UF da CTPS</span>
+                <span class="worker-value">PB</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">RG</span>
+                <span class="worker-value">1.234.567</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Órgão emissor</span>
+                <span class="worker-value">SSP/PB</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Data de emissão</span>
+                <span class="worker-value">15/06/2005</span>
+              </div>
+            </div>
+
+            <!-- Contatos -->
+            <div class="tab-section-title">Contatos</div>
+            <div class="tab-fields-grid">
+              <div class="worker-field">
+                <span class="worker-label">E-mail</span>
+                <span class="worker-value">florentina.arago@email.com</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Celular</span>
+                <span class="worker-value">(83) 9 9812-3456</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Telefone fixo</span>
+                <span class="worker-value">—</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Endereço</span>
+                <span class="worker-value">Rua das Flores, 123 — Cabedelo/PB</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">CEP</span>
+                <span class="worker-value">58.310-000</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Município / UF</span>
+                <span class="worker-value">Cabedelo – PB</span>
+              </div>
+            </div>
+
+            <!-- Composição familiar -->
+            <div class="tab-section-title">Composição familiar</div>
+            <div class="tab-fields-grid">
+              <div class="worker-field">
+                <span class="worker-label">Número de dependentes</span>
+                <span class="worker-value">0</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Responsável pela família</span>
+                <span class="worker-value">Não</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Renda familiar mensal</span>
+                <span class="worker-value">Até 2 salários mínimos</span>
+              </div>
+            </div>
+
+          </div><!-- /panel-dados-gerais -->
+
+          <!-- ╔═════════════════════════════════════════╗
+               ║  TAB 2 — FORMAÇÃO ACADÊMICA             ║
+               ╚═════════════════════════════════════════╝ -->
+          <div class="govbr-tab-panel"
+               id="panel-formacao"
+               role="tabpanel"
+               aria-labelledby="tab-formacao"
+               style="padding:var(--spacing-scale-3) 0 var(--spacing-scale-3);">
+
+            <!-- Escolaridade -->
+            <div class="tab-section-title">Escolaridade</div>
+            <div class="tab-fields-grid">
+              <div class="worker-field">
+                <span class="worker-label">Nível de escolaridade</span>
+                <span class="worker-value">Superior completo</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Curso</span>
+                <span class="worker-value">Ciências Contábeis</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Instituição</span>
+                <span class="worker-value">UFPB — Universidade Federal da Paraíba</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Ano de conclusão</span>
+                <span class="worker-value">2011</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Situação</span>
+                <span class="worker-value"><span class="badge badge-success">Concluído</span></span>
+              </div>
+            </div>
+
+            <!-- Cursos complementares -->
+            <div class="tab-section-title">Cursos e certificações complementares</div>
+
+            <div class="exp-item">
+              <div class="exp-item-header">
+                <span class="exp-cargo">Análise de Investimentos e Gestão de Carteiras</span>
+                <span class="exp-periodo">2018 — 40h</span>
+              </div>
+              <div class="exp-empresa">ANBIMA — Associação Brasileira das Entidades dos Mercados Financeiro e de Capitais</div>
+              <div class="exp-desc">Fundamentos de análise de risco, diversificação de portfólio e gestão de fundos de renda fixa e variável.</div>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-item-header">
+                <span class="exp-cargo">Excel Avançado para Finanças</span>
+                <span class="exp-periodo">2019 — 20h</span>
+              </div>
+              <div class="exp-empresa">Escola Online — Certificado Digital</div>
+              <div class="exp-desc">Tabelas dinâmicas, Power Query, modelagem financeira e dashboards.</div>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-item-header">
+                <span class="exp-cargo">Inglês — Nível Intermediário</span>
+                <span class="exp-periodo">2015</span>
+              </div>
+              <div class="exp-empresa">CCAA — Centro de Cultura Anglo-Americana</div>
+              <div class="exp-desc">Leitura, escrita e conversação em nível intermediário.</div>
+            </div>
+
+          </div><!-- /panel-formacao -->
+
+          <!-- ╔═════════════════════════════════════════╗
+               ║  TAB 3 — EXPERIÊNCIA PROFISSIONAL       ║
+               ╚═════════════════════════════════════════╝ -->
+          <div class="govbr-tab-panel"
+               id="panel-experiencia"
+               role="tabpanel"
+               aria-labelledby="tab-experiencia"
+               style="padding:var(--spacing-scale-3) 0 var(--spacing-scale-3);">
+
+            <!-- Resumo -->
+            <div class="tab-fields-grid-2col" style="margin-bottom:var(--space-4);">
+              <div class="worker-field">
+                <span class="worker-label">Tempo total de experiência</span>
+                <span class="worker-value">14 meses</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Última ocupação (CBO)</span>
+                <span class="worker-value">2525-05 — Administrador de fundos</span>
+              </div>
+            </div>
+
+            <!-- Experiências -->
+            <div class="tab-section-title">Histórico de empregos</div>
+
+            <div class="exp-item">
+              <div class="exp-item-header">
+                <span class="exp-cargo">Analista Financeiro Júnior</span>
+                <span class="exp-periodo">Mar/2022 – Mai/2023 (14 meses)</span>
+              </div>
+              <div class="exp-empresa">
+                <i class="fa-solid fa-building" style="font-size:11px;margin-right:4px;color:var(--color-gray-4);"></i>
+                Banco XP Investimentos S.A. — João Pessoa/PB
+              </div>
+              <div class="exp-desc">
+                Apoio na gestão de carteiras de renda fixa e variável. Elaboração de relatórios de desempenho de fundos.
+                Atendimento a clientes pessoa física e jurídica. Análise de risco e conformidade regulatória.
+              </div>
+              <div style="margin-top:var(--space-2);display:flex;gap:var(--space-2);flex-wrap:wrap;">
+                <span class="skill-tag">Gestão de carteiras</span>
+                <span class="skill-tag">Renda fixa</span>
+                <span class="skill-tag">Análise de risco</span>
+                <span class="skill-tag">Conformidade</span>
+              </div>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-item-header">
+                <span class="exp-cargo">Assistente Administrativo Financeiro</span>
+                <span class="exp-periodo">Jan/2020 – Fev/2022 (26 meses)</span>
+              </div>
+              <div class="exp-empresa">
+                <i class="fa-solid fa-building" style="font-size:11px;margin-right:4px;color:var(--color-gray-4);"></i>
+                Cooperativa de Crédito SICOOB — Cabedelo/PB
+              </div>
+              <div class="exp-desc">
+                Controle de fluxo de caixa, conciliação bancária, lançamentos contábeis e suporte à gestão financeira da cooperativa.
+              </div>
+              <div style="margin-top:var(--space-2);display:flex;gap:var(--space-2);flex-wrap:wrap;">
+                <span class="skill-tag">Fluxo de caixa</span>
+                <span class="skill-tag">Conciliação bancária</span>
+                <span class="skill-tag">Contabilidade</span>
+              </div>
+            </div>
+
+          </div><!-- /panel-experiencia -->
+
+          <!-- ╔═════════════════════════════════════════╗
+               ║  TAB 4 — PRETENSÕES PROFISSIONAIS       ║
+               ╚═════════════════════════════════════════╝ -->
+          <div class="govbr-tab-panel"
+               id="panel-pretensoes"
+               role="tabpanel"
+               aria-labelledby="tab-pretensoes"
+               style="padding:var(--spacing-scale-3) 0 var(--spacing-scale-3);">
+
+            <!-- Pretensão salarial e cargo -->
+            <div class="tab-section-title">Pretensão de cargo e remuneração</div>
+            <div class="tab-fields-grid">
+              <div class="worker-field">
+                <span class="worker-label">Cargo desejado</span>
+                <span class="worker-value">Analista de Investimentos / Gestor de Fundos</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Área de atuação</span>
+                <span class="worker-value">Finanças / Mercado de Capitais</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Pretensão salarial</span>
+                <span class="worker-value">R$ 3.500,00 – R$ 5.000,00</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Regime de trabalho</span>
+                <span class="worker-value">CLT</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Tipo de contrato</span>
+                <span class="worker-value">Efetivo</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Modalidade</span>
+                <span class="worker-value">Presencial ou Híbrido</span>
+              </div>
+            </div>
+
+            <!-- Disponibilidade -->
+            <div class="tab-section-title">Disponibilidade</div>
+            <div class="tab-fields-grid">
+              <div class="worker-field">
+                <span class="worker-label">Disponibilidade para início</span>
+                <span class="worker-value">Imediata</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Disponibilidade para viagens</span>
+                <span class="worker-value">
+                  <span class="badge badge-danger">Não disponível</span>
+                </span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Disponibilidade para mudança de cidade</span>
+                <span class="worker-value">Não</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Período de trabalho</span>
+                <span class="worker-value">Comercial (8h–17h)</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Horas semanais pretendidas</span>
+                <span class="worker-value">40 horas</span>
+              </div>
+            </div>
+
+            <!-- Outras informações -->
+            <div class="tab-section-title">Outras informações</div>
+            <div class="tab-fields-grid-2col">
+              <div class="worker-field">
+                <span class="worker-label">Municípios de interesse</span>
+                <span class="worker-value">Cabedelo, João Pessoa, Santa Rita — PB</span>
+              </div>
+              <div class="worker-field">
+                <span class="worker-label">Observações do trabalhador</span>
+                <span class="worker-value">Tenho interesse em vagas relacionadas a fundos de investimento, análise financeira e gestão de carteiras.</span>
+              </div>
+            </div>
+
+            <!-- Soft skills -->
+            <div class="tab-section-title">Habilidades pessoais declaradas</div>
+            <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);">
+              <span class="skill-tag">Proativo</span>
+              <span class="skill-tag">Pontual</span>
+              <span class="skill-tag">Organizado</span>
+              <span class="skill-tag">Comunicativo</span>
+              <span class="skill-tag">Trabalho em equipe</span>
+              <span class="skill-tag">Atenção a detalhes</span>
+              <span class="skill-tag">Responsável</span>
+            </div>
+
+          </div><!-- /panel-pretensoes -->
+
+        </div><!-- /padding wrapper -->
+      </div><!-- /govbr-card tabs -->
+
+      <!-- Botões -->
+      <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-2);">
+        <a href="convocacao.html" class="govbr-btn govbr-btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i> Voltar à lista
+        </a>
+        <a href="detalhes-batimento.html?pis=444.4444.44-4&nome=Florentina"
+           class="govbr-btn govbr-btn-primary" id="btn-ver-batimento">
+          <i class="fa-solid fa-magnifying-glass"></i> Ver batimento com a vaga
+        </a>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ══════════ BARRA INFERIOR DE ATENDIMENTO ══════════ -->
+  <footer class="barra-atendimento" role="contentinfo" aria-label="Duração do atendimento">
+    <div class="barra-atendimento-duracao">
+      <i class="fa-regular fa-clock" aria-hidden="true"></i>
+      <span>Duração do atendimento:</span>
+      <strong class="barra-atendimento-tempo">00:25</strong>
+    </div>
+  </footer>
+
+  <!-- ╔══════════ MODAL — Finalizar atendimento ══════════╗ -->
+  <div class="govbr-modal-overlay"
+       id="modal-finalizar-atendimento"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-finalizar-title">
+
+    <div class="govbr-modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-finalizar-title">Finalizar atendimento</h2>
+        <button class="modal-close-btn"
+                data-modal-close="modal-finalizar-atendimento"
+                aria-label="Fechar modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-desc">
+          Deseja realmente finalizar o atendimento ao empregador DIRECAO GERAL BB?
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="govbr-btn govbr-btn-secondary"
+                type="button"
+                data-modal-close="modal-finalizar-atendimento">
+          Não
+        </button>
+        <a href="fimAtendimento.html" class="govbr-btn govbr-btn-danger" role="button">
+          Sim
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Personaliza a tela com os dados da URL
+    document.addEventListener('DOMContentLoaded', () => {
+      const params   = new URLSearchParams(window.location.search);
+      const nomeMap  = {
+        'Florentina': { nome: 'Florentina das Neves Menezes de Aragão', inicial: 'F' },
+        'Daniel':     { nome: 'Daniel dos Anjos Pereira de Souza',       inicial: 'D' },
+        'Samela':     { nome: 'Sâmela da Costa Marques',                 inicial: 'S' },
+      };
+      const chave   = params.get('nome') || 'Florentina';
+      const dados   = nomeMap[chave] || nomeMap['Florentina'];
+      const pis     = params.get('pis') || '444.4444.44-4';
+
+      const nomeEl    = document.getElementById('worker-nome');
+      const nitEl     = document.getElementById('worker-nit');
+      const inicialEl = document.getElementById('worker-initials');
+      const batBtn    = document.getElementById('btn-ver-batimento');
+
+      if (nomeEl)    nomeEl.textContent    = dados.nome;
+      if (nitEl)     nitEl.textContent     = pis;
+      if (inicialEl) inicialEl.textContent = dados.inicial;
+      if (batBtn)    batBtn.href = `detalhes-batimento.html?pis=${encodeURIComponent(pis)}&nome=${encodeURIComponent(chave)}`;
+    });
+  </script>
+</body>
+</html>

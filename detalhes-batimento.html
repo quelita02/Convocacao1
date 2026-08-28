@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes do Batimento â€” IMO GOV.BR</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Ir para o conteÃºdo principal</a>
+
+  <!-- â•â•â•â•â•â•â•â•â•â• HEADER â•â•â•â•â•â•â•â•â•â• -->
+  <header class="govbr-header" role="banner">
+    <div class="header-brand">
+      <button class="header-close-btn" id="mobile-menu-toggle" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="header-logo">
+        <svg class="govbr-logo-svg" viewBox="0 0 100 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="9,3.5 10.5,8.5 15.5,8.5 11.5,11.5 13,16.5 9,13.5 5,16.5 6.5,11.5 2.5,8.5 7.5,8.5" fill="#FFCD07"/>
+          <text x="18" y="19" fill="#1351b4" font-family="Rawline,sans-serif" font-weight="700" font-size="14" letter-spacing="0.2">gov.br</text>
+        </svg>
+      </div>
+      <div class="header-divider" aria-hidden="true"></div>
+      <div class="header-system-info">
+        <div class="header-system-name">IMO â€“ IntermediaÃ§Ã£o de MÃ£o-de-Obra</div>
+        <div class="header-system-subtitle">MinistÃ©rio do Trabalho e Emprego</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="header-user">
+        <span>OlÃ¡, JoÃ£o</span>
+        <div class="header-avatar" aria-hidden="true">J</div>
+      </div>
+      <button class="header-icon-btn" aria-label="NotificaÃ§Ãµes">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notification-badge" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â• BARRA SUPERIOR DE ATENDIMENTO â•â•â•â•â•â•â•â•â•â• -->
+  <nav class="barra-atendimento-topo" aria-label="AÃ§Ãµes do atendimento">
+    <a href="lista-vagas.html" class="barra-atendimento-item">
+      <i class="fa-solid fa-house" aria-hidden="true"></i>
+      <span>PÃ¡gina inicial do atendimento</span>
+    </a>
+
+    <button type="button"
+            class="barra-atendimento-item barra-atendimento-item--finalizar"
+            data-modal-target="modal-finalizar-atendimento"
+            aria-haspopup="dialog">
+      <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+      <span>Finalizar o atendimento</span>
+    </button>
+  </nav>
+
+  <div class="app-layout">
+
+    <!-- â•â•â•â•â•â•â•â•â•â• MENU LATERAL â•â•â•â•â•â•â•â•â•â• -->
+    <nav class="govbr-sidebar" aria-label="Menu principal">
+      <ul class="sidebar-nav" role="menubar">
+
+        <!-- PÃ¡gina inicial -->
+        <li role="none">
+          <a href="#" class="nav-item" role="menuitem">
+            <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+            <span class="nav-label">PÃ¡gina inicial</span>
+          </a>
+        </li>
+
+        <!-- CaptaÃ§Ã£o de vagas -->
+        <li class="nav-group" id="nav-group-captacao" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-briefcase"></i></span>
+            <span class="nav-label">CaptaÃ§Ã£o de vagas</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">RecomendaÃ§Ãµes do EmpregAI</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">GestÃ£o de Contatos</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Lembretes</a></li>
+          </ul>
+        </li>
+
+        <!-- Empregador -->
+        <li class="nav-group" id="nav-group-empregador" role="none">
+          <div class="nav-group-header open" role="menuitem" aria-haspopup="true" aria-expanded="true" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-building"></i></span>
+            <span class="nav-label">Empregador</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children expanded" role="menu">
+            <li role="none"><a href="lista-vagas.html" class="nav-subitem" role="menuitem">Novo atendimento</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-divider" role="separator"></li>
+
+        <!-- Gerencial -->
+        <li class="nav-group" id="nav-group-gerencial" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-chart-bar"></i></span>
+            <span class="nav-label">Gerencial</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Cadastrar agente zoneador</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Cadastrar Ã¡reas de atuaÃ§Ã£o</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Alterar Ã¡reas de atuaÃ§Ã£o</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Igualdade Salarial</a></li>
+          </ul>
+        </li>
+
+        <!-- Operacional -->
+        <li class="nav-group" id="nav-group-operacional" role="none">
+          <div class="nav-group-header" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="nav-icon"><i class="fa-solid fa-gears"></i></span>
+            <span class="nav-label">Operacional</span>
+            <i class="fa-solid fa-chevron-down nav-chevron"></i>
+          </div>
+          <ul class="nav-group-children" role="menu">
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">OperaÃ§Ãµes com NIT</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Disponibilidade do Sistema</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">ParÃ¢metros do sistema</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Informativo</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">InstituiÃ§Ãµes de ensino</a></li>
+            <li role="none"><a href="#" class="nav-subitem" role="menuitem">Postos de atendimento</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- â•â•â•â•â•â•â•â•â•â• CONTEÃšDO â•â•â•â•â•â•â•â•â•â• -->
+    <main class="main-content" id="main-content" role="main">
+
+      <!-- Breadcrumb -->
+      <nav class="govbr-breadcrumb" aria-label="Trilha de navegaÃ§Ã£o">
+        <a href="visualizar-vaga.html">InformaÃ§Ãµes da vaga</a>
+        <span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+        <span class="breadcrumb-current">Detalhes do batimento</span>
+      </nav>
+
+      <!-- Page header -->
+      <div class="page-header">
+        <a href="visualizar-vaga.html" class="page-back-btn" aria-label="Voltar">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <h1 class="page-title">Detalhes do batimento trabalhador Ã— vaga</h1>
+      </div>
+
+      <!-- â”€â”€ Cards de identificaÃ§Ã£o â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+      <div class="batimento-header-card">
+
+        <!-- Lado: Trabalhador -->
+        <div class="batimento-side">
+          <div class="batimento-side-title">
+            <i class="fa-solid fa-user" style="margin-right:6px;color:var(--color-primary);"></i>Trabalhador
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-2) var(--space-4);">
+            <div class="worker-field">
+              <span class="worker-label">Nome</span>
+              <span class="worker-value" id="bat-nome">Florentina das Neves Menezes de AragÃ£o</span>
+            </div>
+            <div class="worker-field">
+              <span class="worker-label">PIS/NIT</span>
+              <span class="worker-value" id="bat-pis">444.4444.44-4</span>
+            </div>
+            <div class="worker-field">
+              <span class="worker-label">SituaÃ§Ã£o</span>
+              <span class="worker-value"><span class="badge badge-success">Desempregado</span></span>
+            </div>
+            <div class="worker-field">
+              <span class="worker-label">MunicÃ­pio</span>
+              <span class="worker-value">Cabedelo â€“ PB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="batimento-divider-v"></div>
+
+        <!-- Lado: Vaga -->
+        <div class="batimento-side">
+          <div class="batimento-side-title">
+            <i class="fa-solid fa-briefcase" style="margin-right:6px;color:var(--color-primary);"></i>Vaga
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-2) var(--space-4);">
+            <div class="worker-field">
+              <span class="worker-label">CÃ³digo CBO</span>
+              <span class="worker-value">2525-05</span>
+            </div>
+            <div class="worker-field">
+              <span class="worker-label">OcupaÃ§Ã£o</span>
+              <span class="worker-value">Administrador de fundos e carteiras de investimento</span>
+            </div>
+            <div class="worker-field">
+              <span class="worker-label">NÃºmero de identificaÃ§Ã£o</span>
+              <span class="worker-value">9999999</span>
+            </div>
+            <div class="worker-field">
+              <span class="worker-label">Status</span>
+              <span class="worker-value"><span class="badge badge-aberta">Aberta</span></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- â”€â”€ Resumo de compatibilidade â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+      <div class="govbr-card" style="margin-bottom:var(--space-3);">
+        <div style="padding:var(--space-3) var(--space-4);display:flex;align-items:center;gap:var(--space-5);flex-wrap:wrap;">
+          <div style="display:flex;flex-direction:column;gap:2px;align-items:center;">
+            <span style="font-size:28px;font-weight:700;color:var(--color-success);">75%</span>
+            <span style="font-size:var(--font-size-xs);color:var(--color-text-secondary);">Compatibilidade geral</span>
+          </div>
+          <div style="flex:1;min-width:200px;">
+            <div style="height:10px;border-radius:5px;background:var(--color-gray-2);overflow:hidden;">
+              <div style="height:100%;width:75%;background:var(--color-success);border-radius:5px;transition:width .4s;"></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:var(--font-size-xs);">
+              <i class="fa-solid fa-circle-check" style="color:var(--color-success);font-size:14px;"></i>
+              <span><strong>6</strong> critÃ©rios atendidos</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:var(--font-size-xs);">
+              <i class="fa-solid fa-circle-minus" style="color:var(--color-warning);font-size:14px;"></i>
+              <span><strong>1</strong> atendido parcialmente</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:var(--font-size-xs);">
+              <i class="fa-solid fa-circle-xmark" style="color:var(--color-danger);font-size:14px;"></i>
+              <span><strong>1</strong> nÃ£o atendido</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- â”€â”€ Tabela comparativa â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+      <section class="table-section" aria-label="Comparativo vaga x trabalhador">
+        <div class="table-header-row">
+          <h2 class="table-title">Comparativo de caracterÃ­sticas</h2>
+        </div>
+
+        <div class="govbr-table-wrapper">
+          <table class="govbr-table" aria-label="CaracterÃ­sticas da vaga comparadas ao perfil do trabalhador">
+            <thead>
+              <tr>
+                <th scope="col" style="width:220px;">CritÃ©rio</th>
+                <th scope="col">ExigÃªncia da vaga</th>
+                <th scope="col">Perfil do trabalhador</th>
+                <th scope="col" style="width:110px;text-align:center;">Resultado</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <!-- âœ“ Escolaridade -->
+              <tr class="bat-row-match">
+                <td><strong>Escolaridade</strong></td>
+                <td>Ensino mÃ©dio completo</td>
+                <td>Ensino superior completo â€” CiÃªncias ContÃ¡beis</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Atendido">
+                    <i class="fa-solid fa-circle-check"></i> Atendido
+                  </span>
+                </td>
+              </tr>
+
+              <!-- âœ“ ExperiÃªncia -->
+              <tr class="bat-row-match">
+                <td><strong>ExperiÃªncia profissional</strong></td>
+                <td>5 meses</td>
+                <td>14 meses (Analista Financeiro â€” Banco XP)</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Atendido">
+                    <i class="fa-solid fa-circle-check"></i> Atendido
+                  </span>
+                </td>
+              </tr>
+
+              <!-- âœ“ CTPS -->
+              <tr class="bat-row-match">
+                <td><strong>ComprovaÃ§Ã£o em CTPS</strong></td>
+                <td>NÃ£o exige</td>
+                <td>Possui CTPS Digital cadastrada</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Atendido">
+                    <i class="fa-solid fa-circle-check"></i> Atendido
+                  </span>
+                </td>
+              </tr>
+
+              <!-- âœ“ HabilitaÃ§Ã£o -->
+              <tr class="bat-row-match">
+                <td><strong>HabilitaÃ§Ã£o</strong></td>
+                <td>NÃ£o exige</td>
+                <td>Possui CNH categoria B</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Atendido">
+                    <i class="fa-solid fa-circle-check"></i> Atendido
+                  </span>
+                </td>
+              </tr>
+
+              <!-- âœ“ VeÃ­culo -->
+              <tr class="bat-row-match">
+                <td><strong>Utilizar veÃ­culo prÃ³prio</strong></td>
+                <td>NÃ£o exige</td>
+                <td>NÃ£o possui veÃ­culo prÃ³prio</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Atendido">
+                    <i class="fa-solid fa-circle-check"></i> Atendido
+                  </span>
+                </td>
+              </tr>
+
+              <!-- âœ“ DeficiÃªncia -->
+              <tr class="bat-row-match">
+                <td><strong>PCD / DeficiÃªncia</strong></td>
+                <td>Aceita PCD â€” Nanismo, AmputaÃ§Ã£o</td>
+                <td>NÃ£o possui deficiÃªncia declarada</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Atendido">
+                    <i class="fa-solid fa-circle-check"></i> Atendido
+                  </span>
+                </td>
+              </tr>
+
+              <!-- ~ Idioma (parcial) -->
+              <tr class="bat-row-partial">
+                <td><strong>Idiomas alÃ©m do portuguÃªs</strong></td>
+                <td>NÃ£o exige</td>
+                <td>InglÃªs intermediÃ¡rio</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-partial" title="Atendido parcialmente">
+                    <i class="fa-solid fa-circle-minus"></i> Parcial
+                  </span>
+                </td>
+              </tr>
+
+              <!-- âœ— Disponibilidade -->
+              <tr class="bat-row-no">
+                <td><strong>Disponibilidade para viagens</strong></td>
+                <td>NÃ£o exige</td>
+                <td>
+                  <span style="display:flex;align-items:center;gap:6px;">
+                    Declarou indisponibilidade para viagens
+                    <span class="badge badge-warning" style="font-size:10px;">AtenÃ§Ã£o</span>
+                  </span>
+                </td>
+                <td style="text-align:center;">
+                  <span class="bat-status-no" title="NÃ£o atendido">
+                    <i class="fa-solid fa-circle-xmark"></i> NÃ£o atendido
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Ocupacao -->
+              <tr class="bat-row-match">
+                <td><strong>Ocupação</strong></td>
+                <td>Agente administrativo</td>
+                <td>Agente administrativo</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Critério Compatível">
+                    <i class="fa-solid fa-circle-check"></i> Critério Compatível
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Horario de trabalho -->
+              <tr class="bat-row-match">
+                <td><strong>Horário de trabalho</strong></td>
+                <td>Comercial</td>
+                <td>Comercial</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Critério Compatível">
+                    <i class="fa-solid fa-circle-check"></i> Critério Compatível
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Forma de contratacao -->
+              <tr class="bat-row-match">
+                <td><strong>Forma de contratação</strong></td>
+                <td>Permanente</td>
+                <td>-</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Critério Compatível">
+                    <i class="fa-solid fa-circle-check"></i> Critério Compatível
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Vaga exclusiva para deficientes -->
+              <tr class="bat-row-match">
+                <td><strong>Vaga exclusiva para deficientes</strong></td>
+                <td>SIM</td>
+                <td>SIM</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Critério Compatível">
+                    <i class="fa-solid fa-circle-check"></i> Critério Compatível
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Tempo de habilitacao -->
+              <tr class="bat-row-match">
+                <td><strong>Tempo de habilitação</strong></td>
+                <td>0 mês(es)</td>
+                <td>0 mês(es)</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Critério Compatível">
+                    <i class="fa-solid fa-circle-check"></i> Critério Compatível
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Disponibilidade para dormir no local de trabalho -->
+              <tr class="bat-row-match">
+                <td><strong>Disponibilidade para dormir no local de trabalho</strong></td>
+                <td>Não</td>
+                <td>Não</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Critério Compatível">
+                    <i class="fa-solid fa-circle-check"></i> Critério Compatível
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Disponibilidade para ausentar-se do domicilio por longo periodo -->
+              <tr class="bat-row-match">
+                <td><strong>Disponibilidade para ausentar-se do domicílio por longo período</strong></td>
+                <td>Não</td>
+                <td>Não</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Critério Compatível">
+                    <i class="fa-solid fa-circle-check"></i> Critério Compatível
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Salario -->
+              <tr class="bat-row-match">
+                <td><strong>Salário (R$/mês)</strong></td>
+                <td>R$ 4.500,00</td>
+                <td>-</td>
+                <td style="text-align:center;">
+                  <span class="bat-status-match" title="Compatível">
+                    <i class="fa-solid fa-circle-check"></i> Compatível
+                  </span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Footer com legenda de cores -->
+        <div style="padding:var(--space-2) var(--space-4);border-top:1px solid var(--color-gray-2);
+                    display:flex;gap:var(--space-4);flex-wrap:wrap;align-items:center;">
+          <span style="font-size:var(--font-size-xs);font-weight:600;color:var(--color-text-secondary);margin-right:4px;">Legenda:</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:var(--font-size-xs);">
+            <span style="width:12px;height:12px;border-radius:2px;background:#f3fbf3;border:1px solid var(--color-success);display:inline-block;"></span>
+            Atendido
+          </span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:var(--font-size-xs);">
+            <span style="width:12px;height:12px;border-radius:2px;background:#fffef0;border:1px solid var(--color-warning);display:inline-block;"></span>
+            Atendido parcialmente
+          </span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:var(--font-size-xs);">
+            <span style="width:12px;height:12px;border-radius:2px;background:#fff6f5;border:1px solid var(--color-danger);display:inline-block;"></span>
+            NÃ£o atendido
+          </span>
+        </div>
+
+      </section>
+
+      <!-- BotÃµes de aÃ§Ã£o -->
+      <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-3);">
+        <a href="convocacao.html" class="govbr-btn govbr-btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i> Voltar Ã  lista
+        </a>
+        <a href="cadastro-trabalhador.html?pis=444.4444.44-4&nome=Florentina"
+           class="govbr-btn govbr-btn-primary">
+          <i class="fa-solid fa-user"></i> Ver cadastro do trabalhador
+        </a>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â• BARRA INFERIOR DE ATENDIMENTO â•â•â•â•â•â•â•â•â•â• -->
+  <footer class="barra-atendimento" role="contentinfo" aria-label="DuraÃ§Ã£o do atendimento">
+    <div class="barra-atendimento-duracao">
+      <i class="fa-regular fa-clock" aria-hidden="true"></i>
+      <span>DuraÃ§Ã£o do atendimento:</span>
+      <strong class="barra-atendimento-tempo">00:25</strong>
+    </div>
+  </footer>
+
+  <!-- â•”â•â•â•â•â•â•â•â•â•â• MODAL â€” Finalizar atendimento â•â•â•â•â•â•â•â•â•â•â•— -->
+  <div class="govbr-modal-overlay"
+       id="modal-finalizar-atendimento"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-finalizar-title">
+
+    <div class="govbr-modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-finalizar-title">Finalizar atendimento</h2>
+        <button class="modal-close-btn"
+                data-modal-close="modal-finalizar-atendimento"
+                aria-label="Fechar modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-desc">
+          Deseja realmente finalizar o atendimento ao empregador DIRECAO GERAL BB?
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <!-- "NÃ£o": fecha o modal e permanece na pÃ¡gina (padrÃ£o data-modal-close) -->
+        <button class="govbr-btn govbr-btn-secondary"
+                type="button"
+                data-modal-close="modal-finalizar-atendimento">
+          NÃ£o
+        </button>
+        <!-- "Sim": navega para fimAtendimento.html -->
+        <a href="fimAtendimento.html" class="govbr-btn govbr-btn-danger" role="button">
+          Sim
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // LÃª parÃ¢metros da URL para personalizar a tela
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const nomeEl = document.getElementById('bat-nome');
+      const pisEl  = document.getElementById('bat-pis');
+      const nomeMap = {
+        'Florentina': 'Florentina das Neves Menezes de AragÃ£o',
+        'Daniel':     'Daniel dos Anjos Pereira de Souza',
+        'Samela':     'SÃ¢mela da Costa Marques',
+      };
+      const nomeChave = params.get('nome') || 'Florentina';
+      if (nomeEl) nomeEl.textContent = nomeMap[nomeChave] || nomeChave;
+      if (pisEl && params.get('pis')) pisEl.textContent = params.get('pis');
+    });
+  </script>
+</body>
+</html>
+
+

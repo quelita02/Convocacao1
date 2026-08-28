@@ -1,0 +1,215 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Montar a casca padrão do protótipo em `convocacao.html`": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749208922
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749234975
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749353117
+      }
+    ],
+    "1.2 Adicionar cabeçalho da página e card de identificação da vaga": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749208978
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749362864
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787750678131
+      }
+    ],
+    "1.3 Migrar a metade inferior de `visualizar-vaga.html` para `convocacao.html`": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749209026
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787750687701
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787750882407
+      }
+    ],
+    "1.4 Migrar os modais e o script inline de filtros avançados para `convocacao.html`": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749209071
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787750894361
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787751107366
+      }
+    ],
+    "2.1 Remover a metade inferior, os modais migrados e o script inline": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749209109
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787751121400
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787751977848
+      }
+    ],
+    "3.1 Ajustar tooltip da lupa nas 10 linhas": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749209154
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749236030
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749351486
+      }
+    ],
+    "3.2 Remover a coluna de status da tabela `#table-vagas`": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749209185
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749364052
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787750677006
+      }
+    ],
+    "3.3 Ajustar o `<style>` local de `lista-vagas.html`": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749209216
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787750688848
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787750881357
+      }
+    ],
+    "3.4 Inserir o boneco como 2ª ação em cada `.vagas-actions-cell` (ordem lupa → boneco → gestão)": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749209245
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787750895737
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787751108766
+      }
+    ],
+    "3.5 Redirecionar o botão \"Simular Trabalhadores\"": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787749209278
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787751122541
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787751979049
+      }
+    ],
+    "1. Criar `convocacao.html` (nova página com o fluxo de convocação migrado)": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787751107419
+      }
+    ],
+    "2. Reduzir `visualizar-vaga.html` à metade superior": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787751977888
+      }
+    ],
+    "3. Ajustar `lista-vagas.html` (tabela, CSS e navegação)": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787751979126
+      }
+    ],
+    "4.1 Verificar a Property 1 nas 10 linhas de `#table-vagas`": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787751990585
+      },
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787752081231
+      }
+    ],
+    "4. Checkpoint - Verificação da tabela de vagas": [
+      {
+        "executionId": "faebf81c-3387-428c-88f6-6d3855edbbf8",
+        "chatSessionId": "sess_67203a72-ef1d-40ab-9e53-131c0171dd04",
+        "timestamp": 1787752081391
+      }
+    ]
+  }
+}
